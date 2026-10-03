@@ -9,7 +9,7 @@ export type PostMeta = {
 
 export type Post = PostMeta & { slug: string; minutes: number };
 
-const dir = path.join(process.cwd(), "content", "writing");
+const dir = path.join(process.cwd(), "content", "blogs");
 
 export function getPostSlugs(): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -27,7 +27,7 @@ function readingMinutes(slug: string): number {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  const mod = await import(`@/content/writing/${slug}.mdx`);
+  const mod = await import(`@/content/blogs/${slug}.mdx`);
   return { ...(mod.meta as PostMeta), slug, minutes: readingMinutes(slug) };
 }
 

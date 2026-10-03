@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { flags } from "@/lib/flags";
+import { sheetNo } from "@/lib/site";
 import Link from "next/link";
 import { Arrow } from "@/components/arrow";
 import { getPost, getPosts, getPostSlugs, formatDate } from "@/lib/posts";
@@ -6,10 +9,11 @@ import { getPost, getPosts, getPostSlugs, formatDate } from "@/lib/posts";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getPostSlugs().map((slug) => ({ slug }));
+  // With blogs off, no post pages are generated and every slug 404s.
+  return flags.blogs ? getPostSlugs().map((slug) => ({ slug })) : [];
 }
 
-export async function generateMetadata({ params }: PageProps<"/writing/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/blogs/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   return {
@@ -19,9 +23,10 @@ export async function generateMetadata({ params }: PageProps<"/writing/[slug]">)
   };
 }
 
-export default async function PostPage({ params }: PageProps<"/writing/[slug]">) {
+export default async function PostPage({ params }: PageProps<"/blogs/[slug]">) {
+  if (!flags.blogs) notFound();
   const { slug } = await params;
-  const { default: Body } = await import(`@/content/writing/${slug}.mdx`);
+  const { default: Body } = await import(`@/content/blogs/${slug}.mdx`);
   const posts = await getPosts(); // newest first
   const i = posts.findIndex((p) => p.slug === slug);
   const post = posts[i];
@@ -31,15 +36,17 @@ export default async function PostPage({ params }: PageProps<"/writing/[slug]">)
   return (
     <article>
       <header className="post-head">
-        <Link href="/writing" className="backlink">
-          <Arrow /> Writing
+        <Link href="/blogs" className="backlink">
+          <Arrow /> Blogs
         </Link>
         <h1 className="title">{post.title}</h1>
         <p className="post-meta">
           <time className="mono" dateTime={post.date}>
             {formatDate(post.date)}
           </time>
-          <span className="mono">Sheet 03.{posts.length - i}</span>
+          <span className="mono">
+            Sheet {sheetNo("/blogs")}.{posts.length - i}
+          </span>
           <span className="mono">{post.minutes} min read</span>
         </p>
       </header>
@@ -51,13 +58,13 @@ export default async function PostPage({ params }: PageProps<"/writing/[slug]">)
       {(older || newer) && (
         <nav className="turn" aria-label="More posts">
           {older && (
-            <Link href={`/writing/${older.slug}`}>
+            <Link href={`/blogs/${older.slug}`}>
               <span className="label">Previous</span>
               <span>{older.title}</span>
             </Link>
           )}
           {newer && (
-            <Link href={`/writing/${newer.slug}`} className="next">
+            <Link href={`/blogs/${newer.slug}`} className="next">
               <span className="label">Next</span>
               <span>{newer.title}</span>
             </Link>

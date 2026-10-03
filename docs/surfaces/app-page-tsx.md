@@ -2,14 +2,14 @@
 version: 1
 slug: "app-page-tsx"
 primary_target: "app/page.tsx"
-related_targets: ["app/work/page.tsx","app/writing/page.tsx","app/resume/page.tsx"]
+related_targets: ["app/work/page.tsx","app/blogs/page.tsx","app/resume/page.tsx"]
 ---
 
-# Surface brief: site (home, work, writing, resume)
+# Surface brief: site (home, work, blogs, resume)
 
 ## Scope and mode
 
-The whole site, built in one visual world. The home page is **Persuade**, but quietly: a recruiter decides whether to get in touch, and an engineer decides whether to read. Post pages are **Read**. Routes are `/`, `/work`, `/writing`, `/writing/[slug]` and `/resume`.
+The whole site, built in one visual world. The home page is **Persuade**, but quietly: a recruiter decides whether to get in touch, and an engineer decides whether to read. Post pages are **Read**. Routes are `/`, `/work`, `/blogs`, `/blogs/[slug]` and `/resume`.
 
 ## Audience, job, action
 
@@ -24,7 +24,7 @@ THESIS: The classic minimal engineer site (one reading column of name, intro, li
 
 OWN-WORLD:
 - A pale green computation-pad sheet with a faint full-bleed 1.5rem grid (major lines every 5 units). Ink is graphite; links are blue-black, with a thin underline.
-- The header is one ruled title-block strip of labelled cells (NAME / 02 Work / 03 Writing / 04 Resume).
+- The header is one ruled title-block strip of labelled cells (NAME / 02 Work / 03 Blogs / 04 Resume; sheet numbers close up when blogs are turned off).
 - Section headings are small condensed uppercase labels over a ruled line.
 - Lists are separated by hairlines.
 - Dates and sheet numbers are in Atkinson Mono. Sheet numbers hang in the left margin outside the column.
@@ -36,7 +36,7 @@ STORY: Visitors learn who this is and that he is backend-first, see real writing
 FIRST VIEWPORT:
 - A centred column about 42rem wide holds the ruled header strip, then "Hi, I'm Aneesh." at about 2rem.
 - Below that is a one-sentence intro stating "backend engineer, SDE 2 at Directi", then an inline links row: Email, GitHub, LinkedIn and Resume PDF, with pending ones shown as "soon".
-- The Writing list begins at the fold.
+- The Blogs list begins at the fold when blogs are enabled; otherwise Projects does.
 - There is no signature motion. The memorable thing is the paper itself plus the margin sheet numbers. Motion is limited to link and hover colour.
 
 FORM:

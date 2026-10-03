@@ -4,6 +4,7 @@ import type { Post } from "@/lib/posts";
 import { formatDate } from "@/lib/posts";
 import type { Project } from "@/lib/projects";
 import type { CvItem } from "@/lib/resume";
+import { sheetNo } from "@/lib/site";
 
 export function SectionHead({
   title,
@@ -50,8 +51,8 @@ export function PostList({
       {posts.map((p, i) => (
         <li key={p.slug} className="item">
           <h3 className="item-title">
-            <SheetNo n={`03.${total - i}`} />
-            <Link href={`/writing/${p.slug}`}>{p.title}</Link>
+            <SheetNo n={`${sheetNo("/blogs")}.${total - i}`} />
+            <Link href={`/blogs/${p.slug}`}>{p.title}</Link>
           </h3>
           <time className="item-meta mono" dateTime={p.date}>
             {formatDate(p.date)}
@@ -77,7 +78,7 @@ export function ProjectList({
       {projects.map((p, i) => (
         <li key={p.slug} className="item">
           <h3 className="item-title">
-            <SheetNo n={`02.${i + 1}`} />
+            <SheetNo n={`${sheetNo("/work")}.${i + 1}`} />
             {p.name}
           </h3>
           {p.year && <span className="item-meta mono">{p.year}</span>}
