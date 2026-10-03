@@ -1,26 +1,17 @@
-import { site } from "@/lib/site";
+"use client";
+
+import { usePathname } from "next/navigation";
+import { site, sheets, pad, sheetFor } from "@/lib/site";
 
 export function Footer() {
+  const current = sheetFor(usePathname());
+
   return (
     <footer className="foot">
-      <span className="foot-mark label" aria-hidden="true">
-        End
+      <span className="label">{site.name}</span>
+      <span className="label">
+        Sheet {pad(current.n)} of {pad(sheets.length)}
       </span>
-      <div className="foot-body">
-        <span>{site.name}</span>
-        <span className="label">Built with Next.js</span>
-      </div>
-      <div className="foot-links">
-        <a href={`mailto:${site.email}`}>Email</a>
-        <a href={site.github} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        {site.linkedin && (
-          <a href={site.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        )}
-      </div>
     </footer>
   );
 }

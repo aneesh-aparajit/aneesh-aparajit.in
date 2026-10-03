@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T23:33:17.199Z",
+  "title": "Design System: Computation Pad",
+  "extensions": {
+    "colorMeta": {
+      "stock": {
+        "role": "neutral",
+        "displayName": "Pad Stock",
+        "canonical": "#eaf0df",
+        "oklch": "oklch(94.6% 0.023 122.7)",
+        "tonalRamp": [
+          "oklch(15% 0.023 122.7)",
+          "oklch(26.4% 0.023 122.7)",
+          "oklch(37.9% 0.023 122.7)",
+          "oklch(49.3% 0.023 122.7)",
+          "oklch(60.7% 0.023 122.7)",
+          "oklch(72.1% 0.023 122.7)",
+          "oklch(83.6% 0.023 122.7)",
+          "oklch(95% 0.023 122.7)"
+        ]
+      },
+      "stock-deep": {
+        "role": "neutral",
+        "displayName": "Deep Stock",
+        "canonical": "#e0e8d2",
+        "oklch": "oklch(91.9% 0.031 123.3)",
+        "tonalRamp": [
+          "oklch(15% 0.031 123.3)",
+          "oklch(26.4% 0.031 123.3)",
+          "oklch(37.9% 0.031 123.3)",
+          "oklch(49.3% 0.031 123.3)",
+          "oklch(60.7% 0.031 123.3)",
+          "oklch(72.1% 0.031 123.3)",
+          "oklch(83.6% 0.031 123.3)",
+          "oklch(95% 0.031 123.3)"
+        ]
+      },
+      "grid": {
+        "role": "neutral",
+        "displayName": "Minor Grid Line",
+        "canonical": "#dfe7d4",
+        "oklch": "oklch(91.7% 0.027 125.6)",
+        "tonalRamp": [
+          "oklch(15% 0.027 125.6)",
+          "oklch(26.4% 0.027 125.6)",
+          "oklch(37.9% 0.027 125.6)",
+          "oklch(49.3% 0.027 125.6)",
+          "oklch(60.7% 0.027 125.6)",
+          "oklch(72.1% 0.027 125.6)",
+          "oklch(83.6% 0.027 125.6)",
+          "oklch(95% 0.027 125.6)"
+        ]
+      },
+      "grid-major": {
+        "role": "neutral",
+        "displayName": "Major Grid Line",
+        "canonical": "#d3ddc4",
+        "oklch": "oklch(88.3% 0.035 124.9)",
+        "tonalRamp": [
+          "oklch(15% 0.035 124.9)",
+          "oklch(26.4% 0.035 124.9)",
+          "oklch(37.9% 0.035 124.9)",
+          "oklch(49.3% 0.035 124.9)",
+          "oklch(60.7% 0.035 124.9)",
+          "oklch(72.1% 0.035 124.9)",
+          "oklch(83.6% 0.035 124.9)",
+          "oklch(95% 0.035 124.9)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#b9c9a6",
+        "oklch": "oklch(81.4% 0.051 127.5)",
+        "tonalRamp": [
+          "oklch(15% 0.051 127.5)",
+          "oklch(26.4% 0.051 127.5)",
+          "oklch(37.9% 0.051 127.5)",
+          "oklch(49.3% 0.051 127.5)",
+          "oklch(60.7% 0.051 127.5)",
+          "oklch(72.1% 0.051 127.5)",
+          "oklch(83.6% 0.051 127.5)",
+          "oklch(95% 0.051 127.5)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#5f7650",
+        "oklch": "oklch(53.7% 0.063 133.5)",
+        "tonalRamp": [
+          "oklch(15% 0.063 133.5)",
+          "oklch(26.4% 0.063 133.5)",
+          "oklch(37.9% 0.063 133.5)",
+          "oklch(49.3% 0.063 133.5)",
+          "oklch(60.7% 0.063 133.5)",
+          "oklch(72.1% 0.063 133.5)",
+          "oklch(83.6% 0.063 133.5)",
+          "oklch(95% 0.063 133.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#22271f",
+        "oklch": "oklch(26.5% 0.016 133.7)",
+        "tonalRamp": [
+          "oklch(15% 0.016 133.7)",
+          "oklch(26.4% 0.016 133.7)",
+          "oklch(37.9% 0.016 133.7)",
+          "oklch(49.3% 0.016 133.7)",
+          "oklch(60.7% 0.016 133.7)",
+          "oklch(72.1% 0.016 133.7)",
+          "oklch(83.6% 0.016 133.7)",
+          "oklch(95% 0.016 133.7)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Graphite",
+        "canonical": "#3f473a",
+        "oklch": "oklch(38.6% 0.024 133.4)",
+        "tonalRamp": [
+          "oklch(15% 0.024 133.4)",
+          "oklch(26.4% 0.024 133.4)",
+          "oklch(37.9% 0.024 133.4)",
+          "oklch(49.3% 0.024 133.4)",
+          "oklch(60.7% 0.024 133.4)",
+          "oklch(72.1% 0.024 133.4)",
+          "oklch(83.6% 0.024 133.4)",
+          "oklch(95% 0.024 133.4)"
+        ]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Faint Graphite",
+        "canonical": "#5a6451",
+        "oklch": "oklch(48.9% 0.032 130.2)",
+        "tonalRamp": [
+          "oklch(15% 0.032 130.2)",
+          "oklch(26.4% 0.032 130.2)",
+          "oklch(37.9% 0.032 130.2)",
+          "oklch(49.3% 0.032 130.2)",
+          "oklch(60.7% 0.032 130.2)",
+          "oklch(72.1% 0.032 130.2)",
+          "oklch(83.6% 0.032 130.2)",
+          "oklch(95% 0.032 130.2)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Blue-Black Ink",
+        "canonical": "#1d4470",
+        "oklch": "oklch(38.2% 0.087 253.4)",
+        "tonalRamp": [
+          "oklch(15% 0.087 253.4)",
+          "oklch(26.4% 0.087 253.4)",
+          "oklch(37.9% 0.087 253.4)",
+          "oklch(49.3% 0.087 253.4)",
+          "oklch(60.7% 0.087 253.4)",
+          "oklch(72.1% 0.087 253.4)",
+          "oklch(83.6% 0.087 253.4)",
+          "oklch(95% 0.087 253.4)"
+        ]
+      },
+      "blue-wash": {
+        "role": "primary",
+        "displayName": "Blue Wash",
+        "canonical": "#d3dfdc",
+        "oklch": "oklch(89.4% 0.014 179.4)",
+        "tonalRamp": [
+          "oklch(15% 0.014 179.4)",
+          "oklch(26.4% 0.014 179.4)",
+          "oklch(37.9% 0.014 179.4)",
+          "oklch(49.3% 0.014 179.4)",
+          "oklch(60.7% 0.014 179.4)",
+          "oklch(72.1% 0.014 179.4)",
+          "oklch(83.6% 0.014 179.4)",
+          "oklch(95% 0.014 179.4)"
+        ]
+      },
+      "lamp-stock": {
+        "role": "neutral",
+        "displayName": "Lamp Stock",
+        "canonical": "#121810",
+        "oklch": "oklch(20% 0.018 137.9)",
+        "tonalRamp": [
+          "oklch(15% 0.018 137.9)",
+          "oklch(26.4% 0.018 137.9)",
+          "oklch(37.9% 0.018 137.9)",
+          "oklch(49.3% 0.018 137.9)",
+          "oklch(60.7% 0.018 137.9)",
+          "oklch(72.1% 0.018 137.9)",
+          "oklch(83.6% 0.018 137.9)",
+          "oklch(95% 0.018 137.9)"
+        ]
+      },
+      "lamp-stock-deep": {
+        "role": "neutral",
+        "displayName": "Lamp Deep Stock",
+        "canonical": "#182015",
+        "oklch": "oklch(23.2% 0.024 137.3)",
+        "tonalRamp": [
+          "oklch(15% 0.024 137.3)",
+          "oklch(26.4% 0.024 137.3)",
+          "oklch(37.9% 0.024 137.3)",
+          "oklch(49.3% 0.024 137.3)",
+          "oklch(60.7% 0.024 137.3)",
+          "oklch(72.1% 0.024 137.3)",
+          "oklch(83.6% 0.024 137.3)",
+          "oklch(95% 0.024 137.3)"
+        ]
+      },
+      "lamp-grid": {
+        "role": "neutral",
+        "displayName": "Lamp Minor Grid",
+        "canonical": "#182016",
+        "oklch": "oklch(23.2% 0.022 139.4)",
+        "tonalRamp": [
+          "oklch(15% 0.022 139.4)",
+          "oklch(26.4% 0.022 139.4)",
+          "oklch(37.9% 0.022 139.4)",
+          "oklch(49.3% 0.022 139.4)",
+          "oklch(60.7% 0.022 139.4)",
+          "oklch(72.1% 0.022 139.4)",
+          "oklch(83.6% 0.022 139.4)",
+          "oklch(95% 0.022 139.4)"
+        ]
+      },
+      "lamp-grid-major": {
+        "role": "neutral",
+        "displayName": "Lamp Major Grid",
+        "canonical": "#1f291b",
+        "oklch": "oklch(26.7% 0.029 136.9)",
+        "tonalRamp": [
+          "oklch(15% 0.029 136.9)",
+          "oklch(26.4% 0.029 136.9)",
+          "oklch(37.9% 0.029 136.9)",
+          "oklch(49.3% 0.029 136.9)",
+          "oklch(60.7% 0.029 136.9)",
+          "oklch(72.1% 0.029 136.9)",
+          "oklch(83.6% 0.029 136.9)",
+          "oklch(95% 0.029 136.9)"
+        ]
+      },
+      "lamp-rule": {
+        "role": "neutral",
+        "displayName": "Lamp Hairline Rule",
+        "canonical": "#33422c",
+        "oklch": "oklch(35.9% 0.042 135.9)",
+        "tonalRamp": [
+          "oklch(15% 0.042 135.9)",
+          "oklch(26.4% 0.042 135.9)",
+          "oklch(37.9% 0.042 135.9)",
+          "oklch(49.3% 0.042 135.9)",
+          "oklch(60.7% 0.042 135.9)",
+          "oklch(72.1% 0.042 135.9)",
+          "oklch(83.6% 0.042 135.9)",
+          "oklch(95% 0.042 135.9)"
+        ]
+      },
+      "lamp-rule-strong": {
+        "role": "neutral",
+        "displayName": "Lamp Strong Rule",
+        "canonical": "#63795a",
+        "oklch": "oklch(55% 0.054 136.7)",
+        "tonalRamp": [
+          "oklch(15% 0.054 136.7)",
+          "oklch(26.4% 0.054 136.7)",
+          "oklch(37.9% 0.054 136.7)",
+          "oklch(49.3% 0.054 136.7)",
+          "oklch(60.7% 0.054 136.7)",
+          "oklch(72.1% 0.054 136.7)",
+          "oklch(83.6% 0.054 136.7)",
+          "oklch(95% 0.054 136.7)"
+        ]
+      },
+      "lamp-ink": {
+        "role": "neutral",
+        "displayName": "Lamp Graphite",
+        "canonical": "#dfe7d3",
+        "oklch": "oklch(91.6% 0.028 124.8)",
+        "tonalRamp": [
+          "oklch(15% 0.028 124.8)",
+          "oklch(26.4% 0.028 124.8)",
+          "oklch(37.9% 0.028 124.8)",
+          "oklch(49.3% 0.028 124.8)",
+          "oklch(60.7% 0.028 124.8)",
+          "oklch(72.1% 0.028 124.8)",
+          "oklch(83.6% 0.028 124.8)",
+          "oklch(95% 0.028 124.8)"
+        ]
+      },
+      "lamp-ink-soft": {
+        "role": "neutral",
+        "displayName": "Lamp Soft Graphite",
+        "canonical": "#bcc6b0",
+        "oklch": "oklch(81.3% 0.032 127.1)",
+        "tonalRamp": [
+          "oklch(15% 0.032 127.1)",
+          "oklch(26.4% 0.032 127.1)",
+          "oklch(37.9% 0.032 127.1)",
+          "oklch(49.3% 0.032 127.1)",
+          "oklch(60.7% 0.032 127.1)",
+          "oklch(72.1% 0.032 127.1)",
+          "oklch(83.6% 0.032 127.1)",
+          "oklch(95% 0.032 127.1)"
+        ]
+      },
+      "lamp-ink-faint": {
+        "role": "neutral",
+        "displayName": "Lamp Faint Graphite",
+        "canonical": "#929d86",
+        "oklch": "oklch(68.1% 0.035 128.2)",
+        "tonalRamp": [
+          "oklch(15% 0.035 128.2)",
+          "oklch(26.4% 0.035 128.2)",
+          "oklch(37.9% 0.035 128.2)",
+          "oklch(49.3% 0.035 128.2)",
+          "oklch(60.7% 0.035 128.2)",
+          "oklch(72.1% 0.035 128.2)",
+          "oklch(83.6% 0.035 128.2)",
+          "oklch(95% 0.035 128.2)"
+        ]
+      },
+      "lamp-blue": {
+        "role": "primary",
+        "displayName": "Lamp Blue Ink",
+        "canonical": "#9cc0ea",
+        "oklch": "oklch(79.6% 0.071 252.6)",
+        "tonalRamp": [
+          "oklch(15% 0.071 252.6)",
+          "oklch(26.4% 0.071 252.6)",
+          "oklch(37.9% 0.071 252.6)",
+          "oklch(49.3% 0.071 252.6)",
+          "oklch(60.7% 0.071 252.6)",
+          "oklch(72.1% 0.071 252.6)",
+          "oklch(83.6% 0.071 252.6)",
+          "oklch(95% 0.071 252.6)"
+        ]
+      },
+      "lamp-blue-wash": {
+        "role": "primary",
+        "displayName": "Lamp Blue Wash",
+        "canonical": "#1c2b33",
+        "oklch": "oklch(27.9% 0.025 232.1)",
+        "tonalRamp": [
+          "oklch(15% 0.025 232.1)",
+          "oklch(26.4% 0.025 232.1)",
+          "oklch(37.9% 0.025 232.1)",
+          "oklch(49.3% 0.025 232.1)",
+          "oklch(60.7% 0.025 232.1)",
+          "oklch(72.1% 0.025 232.1)",
+          "oklch(83.6% 0.025 232.1)",
+          "oklch(95% 0.025 232.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page and post titles only; 1.75rem on a 2.25rem line below 40rem."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "h2 inside post prose."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "List-entry titles; prose h3 at 1.1875rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Interface text, ledes and descriptions."
+      },
+      "body-prose": {
+        "displayName": "Body Prose",
+        "purpose": "Post bodies; 1.0625rem on phones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase condensed field names, section heads, footer and nav-cell labels."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Dates, sheet numbers, reading time and code, in tabular figures."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; used for link underline colour and header-cell background."
+      },
+      {
+        "name": "duration-state",
+        "value": "160ms",
+        "purpose": "Colour and underline transitions. No other motion exists."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "max-width: 40rem",
+        "purpose": "Tighter column padding, stacked header strip, stacked notes, full-bleed code."
+      },
+      {
+        "name": "margin",
+        "value": "max-width: 52rem",
+        "purpose": "Below this, sheet numbers move inline as mono prefixes."
+      }
+    ],
+    "grid": {
+      "unit": "1.5rem",
+      "major": "7.5rem",
+      "minorPosition": "calc(50% + 0.75rem) 0",
+      "majorPosition": "calc(50% + 3.75rem) 0",
+      "purpose": "Minor lines land on the 42rem column edges; a minor and a major line sit on the viewport centre."
+    },
+    "themes": {
+      "dark": "prefers-color-scheme: dark unless data-theme=\"light\"; forced by data-theme=\"dark\". Uses the lamp-* tokens role for role.",
+      "print": "Background grid, header strip, footer and skip link hidden."
+    }
+  },
+  "components": [
+    {
+      "name": "Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Blue-black text link with a thin 40% underline that firms up on hover.",
+      "html": "<p class=\"ds-p\">Read the <a class=\"ds-link\" href=\"#\">latest write-up</a> or the <a class=\"ds-link ds-out\" href=\"#\">repository <svg class=\"ds-arrow\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><path d=\"M3 9 9 3M4 3h5v5\"/></svg></a>. <span class=\"ds-soon\">LinkedIn · soon</span></p>",
+      "css": ".ds-p{font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif);font-size:1.0625rem;line-height:1.6;color:var(--ink,#22271f);background:var(--stock,#eaf0df);padding:1rem}.ds-link{color:var(--blue,#1d4470);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.22em;text-decoration-color:color-mix(in oklab,var(--blue,#1d4470) 40%,transparent);transition:text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-link:hover{text-decoration-color:currentColor}.ds-link:focus-visible{outline:2px solid var(--blue,#1d4470);outline-offset:2px}.ds-out{display:inline-flex;align-items:center;gap:0.3em}.ds-arrow{width:0.7em;height:0.7em;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:square}.ds-soon{color:var(--ink-faint,#5a6451)}"
+    },
+    {
+      "name": "Title-Block Strip",
+      "kind": "nav",
+      "refersTo": "header-cell",
+      "description": "The header: one ruled strip of labelled cells, name first, current sheet washed blue.",
+      "html": "<nav class=\"ds-strip\"><a href=\"#\"><span class=\"ds-label\">Name</span><span>Full Name</span></a><a href=\"#\" aria-current=\"page\"><span class=\"ds-label\">02</span><span>Work</span></a><a href=\"#\"><span class=\"ds-label\">03</span><span>Writing</span></a><a href=\"#\"><span class=\"ds-label\">04</span><span>Resume</span></a></nav>",
+      "css": ".ds-strip{display:grid;grid-template-columns:1fr repeat(3,auto);border:1px solid var(--rule-strong,#5f7650);background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif);font-size:1.0625rem}.ds-strip>*{display:flex;flex-direction:column;justify-content:center;gap:0.125rem;min-height:3rem;padding:0.25rem 1rem;border-left:1px solid var(--rule,#b9c9a6);color:var(--ink,#22271f);text-decoration:none;line-height:1.25;transition:background-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-strip>:first-child{border-left:0;font-weight:700}.ds-strip a:hover{background:var(--stock-deep,#e0e8d2)}.ds-strip a[aria-current=\"page\"]:not(:first-child){background:var(--blue-wash,#d3dfdc)}.ds-strip a[aria-current=\"page\"]:not(:first-child) .ds-label{color:var(--blue,#1d4470)}.ds-strip a:focus-visible{outline:2px solid var(--blue,#1d4470);outline-offset:-3px}.ds-label{font-family:var(--font-label,\"Barlow Condensed\",\"Arial Narrow\",sans-serif);font-weight:600;font-size:0.75rem;line-height:1rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-faint,#5a6451)}"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "refersTo": "section-head",
+      "description": "Condensed uppercase label over a strong rule, with an optional right-aligned link.",
+      "html": "<div class=\"ds-head\"><h2 class=\"ds-label\">Writing</h2><a href=\"#\">All writing</a></div>",
+      "css": ".ds-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:0.625rem;border-bottom:1px solid var(--rule-strong,#5f7650);background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif)}.ds-head h2{margin:0}.ds-head a{font-size:0.9375rem;color:var(--blue,#1d4470);text-decoration-thickness:1px;text-underline-offset:0.22em;text-decoration-color:color-mix(in oklab,var(--blue,#1d4470) 40%,transparent);transition:text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-head a:hover{text-decoration-color:currentColor}.ds-label{font-family:var(--font-label,\"Barlow Condensed\",\"Arial Narrow\",sans-serif);font-weight:600;font-size:0.75rem;line-height:1rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-faint,#5a6451)}"
+    },
+    {
+      "name": "List Entry",
+      "kind": "custom",
+      "refersTo": "list-item",
+      "description": "The signature unit: hairline-separated entry with bold title, mono meta at right, and a sheet number hanging in the margin.",
+      "html": "<ol class=\"ds-list\"><li class=\"ds-item\"><h3 class=\"ds-title\"><span class=\"ds-n\">03.2</span><a href=\"#\">Entry title</a></h3><time class=\"ds-meta\">Mon 2026</time><p class=\"ds-body\">One or two sentences describing the entry in soft graphite.</p></li><li class=\"ds-item ds-placeholder\"><h3 class=\"ds-title\"><span class=\"ds-n\">03.1</span>Placeholder entry</h3><span class=\"ds-meta\">----</span><p class=\"ds-body\">Unconfirmed content: dashed rule, faint text.</p></li></ol>",
+      "css": ".ds-list{list-style:none;margin:0;padding:1rem 1rem 1rem 5.5rem;background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif);color:var(--ink,#22271f);line-height:1.6}.ds-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:1.5rem;row-gap:0.25rem;padding:1rem 0;border-bottom:1px solid var(--rule,#b9c9a6)}.ds-title{margin:0;font-weight:700;font-size:1.0625rem}.ds-title a{color:var(--blue,#1d4470);text-decoration-thickness:1px;text-underline-offset:0.22em;text-decoration-color:color-mix(in oklab,var(--blue,#1d4470) 40%,transparent);transition:text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-title a:hover{text-decoration-color:currentColor}.ds-title a:focus-visible{outline:2px solid var(--blue,#1d4470);outline-offset:2px}.ds-meta{grid-column:2;grid-row:1;white-space:nowrap;font-family:var(--font-mono,\"Atkinson Hyperlegible Mono\",ui-monospace,monospace);font-size:0.875rem;font-variant-numeric:tabular-nums;color:var(--ink-soft,#3f473a)}.ds-body{grid-column:1/-1;margin:0;color:var(--ink-soft,#3f473a);font-size:1rem;max-width:36em}.ds-n{position:absolute;left:-4.75rem;width:3.5rem;top:1.2rem;text-align:right;font-weight:400;font-family:var(--font-mono,\"Atkinson Hyperlegible Mono\",ui-monospace,monospace);font-size:0.875rem;font-variant-numeric:tabular-nums;color:var(--ink-faint,#5a6451)}.ds-placeholder{border-bottom-style:dashed}.ds-placeholder .ds-title,.ds-placeholder .ds-body{color:var(--ink-faint,#5a6451)}"
+    },
+    {
+      "name": "Decision Note",
+      "kind": "custom",
+      "description": "Two-column definition list hung off a strong left rule: label terms, soft-graphite answers.",
+      "html": "<dl class=\"ds-note\"><dt class=\"ds-label\">Decision</dt><dd>The one choice that shaped the build.</dd><dt class=\"ds-label\">Trade-off</dt><dd>What that choice cost.</dd></dl>",
+      "css": ".ds-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0.25rem 1rem;margin:0;padding:0.25rem 0 0.25rem 1rem;border-left:1px solid var(--rule-strong,#5f7650);background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif);font-size:0.9375rem;line-height:1.5}.ds-note dt{padding-top:0.15rem}.ds-note dd{margin:0;color:var(--ink-soft,#3f473a)}.ds-label{font-family:var(--font-label,\"Barlow Condensed\",\"Arial Narrow\",sans-serif);font-weight:600;font-size:0.75rem;line-height:1rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-faint,#5a6451)}"
+    },
+    {
+      "name": "Code Block",
+      "kind": "card",
+      "refersTo": "code-block",
+      "description": "The one filled surface: deep stock with a hairline border and square corners.",
+      "html": "<pre class=\"ds-pre\"><code>const u = \"1.5rem\";\nconst column = \"42rem\";</code></pre><p class=\"ds-inline\">Inline <code>code</code> sits on the same deep stock.</p>",
+      "css": ".ds-pre{margin:0;padding:1rem 1.25rem;overflow-x:auto;background:var(--stock-deep,#e0e8d2);border:1px solid var(--rule,#b9c9a6);color:var(--ink,#22271f);font-family:var(--font-mono,\"Atkinson Hyperlegible Mono\",ui-monospace,monospace);font-size:0.875rem;line-height:1.6;tab-size:2}.ds-inline{font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif);font-size:1.125rem;line-height:1.75;color:var(--ink,#22271f)}.ds-inline code{font-family:var(--font-mono,\"Atkinson Hyperlegible Mono\",ui-monospace,monospace);font-size:0.875em;padding:0.05em 0.3em;background:var(--stock-deep,#e0e8d2);border:1px solid var(--rule,#b9c9a6)}"
+    },
+    {
+      "name": "Post Turn",
+      "kind": "nav",
+      "description": "Previous/next under a strong rule: label over underlined title, next aligned right.",
+      "html": "<nav class=\"ds-turn\"><a href=\"#\"><span class=\"ds-label\">Previous</span><span class=\"ds-t\">Older post title</span></a><a href=\"#\" class=\"ds-next\"><span class=\"ds-label\">Next</span><span class=\"ds-t\">Newer post title</span></a></nav>",
+      "css": ".ds-turn{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;padding-top:1rem;border-top:1px solid var(--rule-strong,#5f7650);background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif)}.ds-turn a{display:flex;flex-direction:column;gap:0.25rem;text-decoration:none;color:var(--blue,#1d4470)}.ds-turn a:focus-visible{outline:2px solid var(--blue,#1d4470);outline-offset:2px}.ds-t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.22em;text-decoration-color:color-mix(in oklab,var(--blue,#1d4470) 40%,transparent);transition:text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-turn a:hover .ds-t{text-decoration-color:currentColor}.ds-next{grid-column:2;text-align:right}.ds-label{font-family:var(--font-label,\"Barlow Condensed\",\"Arial Narrow\",sans-serif);font-weight:600;font-size:0.75rem;line-height:1rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-faint,#5a6451)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Computation Pad",
+    "overview": "The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale green stock, a faint full-bleed grid, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.\n\nDensity is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep green-black stock with a dim grid. Print drops the paper and the chrome and keeps the column.\n\nThe world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.",
+    "keyCharacteristics": [
+      "One centred 42rem reading column; no multi-column layouts.",
+      "Full-bleed 1.5rem minor grid with 7.5rem majors, registered to the column.",
+      "Structure by 1px rules only: square corners, no shadows, no filled panels except code.",
+      "Three voices of type: humanist sans for reading, condensed uppercase for labels, mono for numbers.",
+      "One accent (blue-black ink) carried only by links, the current nav cell, focus and selection.",
+      "No signature motion; only colour and underline transitions."
+    ],
+    "rules": [
+      {
+        "name": "The One Ink Rule",
+        "body": "Blue-black is reserved for interaction (links, current location, focus, selection). Static text, rules and labels stay in the green-graphite family.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper Is the Palette Rule",
+        "body": "Every neutral is a step of the same pale green sheet or its graphite. No white, no grey, no second hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Display Face Rule",
+        "body": "Titles are the body family at 700. There is no separate display typeface, and no type larger than 2rem.",
+        "section": "typography"
+      },
+      {
+        "name": "The Numbers Are Mono Rule",
+        "body": "Any date, sheet number or count is set in the mono with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Registered Grid Rule",
+        "body": "The grid is not wallpaper: its minor lines meet the column edges. Any change to column width or grid offset must keep the column edges on grid lines.",
+        "section": "layout"
+      },
+      {
+        "name": "The Drawn Not Lifted Rule",
+        "body": "If something needs separation, rule it. Never lift it with a shadow, blur or overlay.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** measure vertical spacing in units of 1.5rem (u, 2u, 3u, 5u).",
+      "**Do** keep the minor grid registered to the column edges when changing column width or grid offset.",
+      "**Do** separate content with 1px rules: hairline between entries, strong under section heads and around the strip.",
+      "**Do** set every date, count and sheet number in the mono with tabular figures.",
+      "**Do** mark unconfirmed content with dashed rules and faint graphite rather than hiding it.",
+      "**Do** give every new colour role a lamp counterpart in both dark-theme blocks.",
+      "**Do** keep motion to colour and underline transitions at 160ms on the ease-out curve."
+    ],
+    "donts": [
+      "**Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop 1px grid lines.",
+      "**Don't** box list entries into cards or filled panels; filled backgrounds are limited to the header strip's states and code.",
+      "**Don't** introduce a display typeface or type larger than 2rem.",
+      "**Don't** use blue-black for anything that is not interactive or the current location.",
+      "**Don't** add entrance, scroll or hover motion beyond colour and underline transitions.",
+      "**Don't** put a label above a page or post title; labels name fields, sections and sheet positions, never introduce headlines."
+    ]
+  }
+}
