@@ -32,7 +32,15 @@ An early-career software engineer, currently SDE 2 at Directi. The site's claim 
 ## Capabilities and Constraints
 
 - Sections required: projects, blog/writing, resume/work history, contact.
-- Undecided: which projects to feature and how they are described; whether the resume is a page, a PDF download, or both; contact method (email, LinkedIn, other); domain.
+- Resume is offered both as a web page and as a PDF download (owner will supply the PDF).
+- Contact: email and LinkedIn (LinkedIn URL to be supplied).
+- Undecided: which projects to feature and how they are described; domain.
+
+## Brand Commitments
+
+- **Minimalist, but designed.** The owner is a minimalist: nothing fancy or showy, but not a bare text page either. Some deliberate design is welcome.
+- **Clarity over flourish.** A visitor should quickly understand what the owner brings, what they can build, and where to read more.
+- **Writing matters.** The owner is starting to write engineering blog posts and wants to be more active in the engineering community, so the blog is a growing, primary part of the site.
 
 ## Evidence on Hand
 
