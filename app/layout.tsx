@@ -3,8 +3,6 @@ import { Atkinson_Hyperlegible_Next, Atkinson_Hyperlegible_Mono, Barlow_Condense
 import { TitleBlock } from "@/components/title-block";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
-import { log } from "@/lib/log";
-import { getPosts } from "@/lib/posts";
 import "./globals.css";
 
 const atkinson = Atkinson_Hyperlegible_Next({
@@ -26,7 +24,7 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   ...(site.url ? { metadataBase: new URL(site.url) } : {}),
   title: {
-    default: `${site.name}, software engineer`,
+    default: `${site.name}, backend engineer`,
     template: `%s · ${site.name}`,
   },
   description: site.statement,
@@ -45,20 +43,18 @@ export const viewport: Viewport = {
   ],
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const posts = await getPosts();
-  const postDates = Object.fromEntries(posts.map((p) => [p.slug, p.date]));
-  const revised = [...posts.map((p) => p.date), ...log.map((l) => l.date)].sort().at(-1) ?? "";
-
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${atkinson.variable} ${atkinsonMono.variable} ${barlow.variable}`}>
       <body>
         <a className="skip" href="#main">
           Skip to content
         </a>
-        <TitleBlock revised={revised} postDates={postDates} />
-        {children}
-        <Footer />
+        <div className="col">
+          <TitleBlock />
+          <main id="main">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

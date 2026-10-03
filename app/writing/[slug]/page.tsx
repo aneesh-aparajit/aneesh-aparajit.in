@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sheet, Row } from "@/components/sheet";
 import { Arrow } from "@/components/arrow";
 import { getPost, getPosts, getPostSlugs, formatDate } from "@/lib/posts";
 
@@ -26,61 +25,45 @@ export default async function PostPage({ params }: PageProps<"/writing/[slug]">)
   const posts = await getPosts(); // newest first
   const i = posts.findIndex((p) => p.slug === slug);
   const post = posts[i];
-  const sheetNo = `03.${posts.length - i}`;
   const newer = posts[i - 1];
   const older = posts[i + 1];
 
   return (
-    <Sheet>
-      <Row mark={sheetNo} label="Post">
-        <article>
-          <Link href="/writing" className="backlink">
-            <Arrow /> Writing
-          </Link>
-          <h1 className="page-title">{post.title}</h1>
-          <div className="post-strip">
-            <div className="cell">
-              <span className="label">Date</span>
-              <time className="cell-value" dateTime={post.date}>
-                {formatDate(post.date)}
-              </time>
-            </div>
-            <div className="cell">
-              <span className="label">Sheet</span>
-              <span className="cell-value">{sheetNo}</span>
-            </div>
-            <div className="cell">
-              <span className="label">Read</span>
-              <span className="cell-value">{post.minutes} min</span>
-            </div>
-          </div>
+    <article>
+      <header className="post-head">
+        <Link href="/writing" className="backlink">
+          <Arrow /> Writing
+        </Link>
+        <h1 className="title">{post.title}</h1>
+        <p className="post-meta">
+          <time className="mono" dateTime={post.date}>
+            {formatDate(post.date)}
+          </time>
+          <span className="mono">Sheet 03.{posts.length - i}</span>
+          <span className="mono">{post.minutes} min read</span>
+        </p>
+      </header>
 
-          <div className="prose" style={{ marginTop: "calc(var(--u) * 2)" }}>
-            <Body />
-          </div>
-        </article>
+      <div className="prose">
+        <Body />
+      </div>
 
-        {(older || newer) && (
-          <nav className="turn" aria-label="More sheets">
-            {older ? (
-              <Link href={`/writing/${older.slug}`} className="cell">
-                <span className="label">Previous sheet</span>
-                <span className="cell-value">{older.title}</span>
-              </Link>
-            ) : (
-              <span className="cell" />
-            )}
-            {newer ? (
-              <Link href={`/writing/${newer.slug}`} className="cell next">
-                <span className="label">Next sheet</span>
-                <span className="cell-value">{newer.title}</span>
-              </Link>
-            ) : (
-              <span className="cell" />
-            )}
-          </nav>
-        )}
-      </Row>
-    </Sheet>
+      {(older || newer) && (
+        <nav className="turn" aria-label="More posts">
+          {older && (
+            <Link href={`/writing/${older.slug}`}>
+              <span className="label">Previous</span>
+              <span>{older.title}</span>
+            </Link>
+          )}
+          {newer && (
+            <Link href={`/writing/${newer.slug}`} className="next">
+              <span className="label">Next</span>
+              <span>{newer.title}</span>
+            </Link>
+          )}
+        </nav>
+      )}
+    </article>
   );
 }

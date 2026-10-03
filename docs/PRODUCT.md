@@ -21,7 +21,7 @@ A personal portfolio and writing home for Aneesh Aparajit (name taken from the G
 
 ## Positioning
 
-An early-career software engineer, currently SDE 2 at Directi. The site's claim is demonstrated, inspectable work — real repositories and technical writing — rather than self-description.
+An early-career software engineer, currently SDE 2 at Directi, working primarily on the backend. The site must not imply frontend specialism: its design stays plain and functional so visitors judge the engineering, not the styling. The site's claim is demonstrated, inspectable work — real repositories and technical writing — rather than self-description.
 
 ## Operating Context
 

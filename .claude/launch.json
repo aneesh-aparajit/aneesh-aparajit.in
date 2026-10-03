@@ -4,8 +4,22 @@
     {
       "name": "www",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["dev"],
+      "runtimeArgs": [
+        "dev"
+      ],
       "port": 3000
+    },
+    {
+      "name": "previews",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "3200",
+        "--directory",
+        ".impeccable/previews"
+      ],
+      "port": 3200
     }
   ]
 }

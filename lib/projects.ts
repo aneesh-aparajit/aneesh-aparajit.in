@@ -1,51 +1,60 @@
+// Dates come from each repository's commit history.
 export type Project = {
   slug: string;
   name: string;
   summary: string;
   stack: string[];
-  year: string;
+  year?: string;
   repo?: string;
   live?: string;
-  // The margin note: one engineering decision and what it cost.
+  // One engineering decision and what it cost. Shown on the Work page.
   decision?: { choice: string; tradeoff: string };
-  // Placeholder entries render as visibly unfilled sheets. Remove the flag once real.
-  placeholder?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    slug: "www",
-    name: "www",
+    slug: "federatedgpt",
+    name: "FederatedGPT",
     summary:
-      "This site: a portfolio and engineering blog laid out like a pad of computation sheets.",
-    stack: ["Next.js", "TypeScript", "MDX"],
-    year: "2026",
-    repo: "https://github.com/aneesh-aparajit/www",
-    decision: {
-      choice: "Next.js with every page statically generated.",
-      tradeoff:
-        "More framework than a static site strictly needs, in exchange for MDX posts and room to grow.",
-    },
+      "nanoGPT trained with federated learning on Flower. A server runs a custom FedAvg strategy that checkpoints the global model each round, and Dockerised clients train a character-level GPT on their own shards of Indian court judgments, so the raw text never leaves a client.",
+    stack: ["PyTorch", "Flower", "Docker"],
+    year: "Nov 2023",
+    repo: "https://github.com/aneesh-aparajit/fedgpt-py",
   },
   {
-    slug: "placeholder-1",
-    name: "Your next project",
+    slug: "legalease",
+    name: "LegalEase",
     summary:
-      "Placeholder. Add a real project in lib/projects.ts: what it does, who used it, and what was hard.",
-    stack: ["Stack"],
-    year: "Year",
-    decision: {
-      choice: "The one decision worth explaining.",
-      tradeoff: "What it cost, and why it was still right.",
-    },
-    placeholder: true,
+      "A legal-assistance platform built as a team. I built the ML service: a FastAPI app with a legal named-entity recognition endpoint on a spaCy transformer pipeline, and a retrieval chat endpoint that embeds the question with MiniLM, finds relevant case law in Pinecone and answers with an LLM. It ships as a Docker image through GitHub Actions.",
+    stack: ["Python", "FastAPI", "spaCy", "Pinecone", "Docker"],
+    year: "Sep 2023",
+    repo: "https://github.com/orgs/LegalEase-SIH/repositories",
   },
   {
-    slug: "placeholder-2",
-    name: "Another project",
-    summary: "Placeholder. Link the repository so readers can inspect the code.",
-    stack: ["Stack"],
-    year: "Year",
-    placeholder: true,
+    slug: "torchtemplates",
+    name: "torchtemplates",
+    summary:
+      "A command-line tool, published on PyPI, that scaffolds PyTorch projects. Its init command creates a pip-installable package, and new-pipeline generates the config, dataset, model, training loop, k-fold splits and utilities for image, text or tabular data from Jinja2 templates.",
+    stack: ["Python", "Click", "Jinja2"],
+    year: "Mar 2023",
+    repo: "https://github.com/aneesh-aparajit/torchtemplates",
+  },
+  {
+    slug: "heatsense",
+    name: "HeatSense.ai",
+    summary:
+      "Heat-wave and air-quality prediction for tier-2 cities in Telangana from monthly weather, AQI, energy and vehicle-sales data. Regression models estimate AQI and temperature, and a classifier with an adjustable tolerance flags heat-wave conditions on a map dashboard. First Runner-Up, NASSCOM Telangana AI Mission 2023.",
+    stack: ["PyTorch", "pandas", "React"],
+    year: "Feb 2023",
+    repo: "https://github.com/PratikGarai/NASSCOM-TAIM",
+  },
+  {
+    slug: "reddit-multimodal-crawler",
+    name: "reddit-multimodal-crawler",
+    summary:
+      "A PRAW wrapper, published on PyPI, that turns subreddits into datasets. It collects posts and comments with their image and video URLs, scores titles and bodies with VADER sentiment, hashes author names with bcrypt, and exports to CSV or TSV.",
+    stack: ["Python", "PRAW", "pandas", "NLTK"],
+    year: "Dec 2022",
+    repo: "https://github.com/aneesh-aparajit/reddit-crawler",
   },
 ];

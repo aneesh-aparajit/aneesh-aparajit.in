@@ -4,29 +4,32 @@
 export const site = {
   name: "Aneesh Aparajit",
   shortName: "Aneesh",
-  role: "SDE 2",
-  company: "Directi",
-  // The one statement a recruiter reads first. Make it specific to what you build.
+  role: "Software Engineer II",
+  company: "Zeta",
+  // The intro under "Hi, I'm Aneesh." Say plainly what you build.
   statement:
-    "Software engineer at Directi. I build software end to end, and I write down how it works.",
-  // Shows a visible draft marker under the statement until you rewrite it.
-  statementIsDraft: true,
+    "Backend engineer at Zeta. I build payment, wallet and identity systems, and I write about how they work.",
   email: "aneeshaparajit.g@gmail.com",
   github: "https://github.com/aneesh-aparajit",
-  // Paste your LinkedIn profile URL to show the LinkedIn link.
-  linkedin: null as string | null,
-  // Drop your resume at public/resume.pdf to enable the download link.
-  resumePdf: "/resume.pdf",
+  // Paste your LinkedIn profile URL to turn on the LinkedIn link.
+  linkedin: "https://www.linkedin.com/in/aneesh-aparajit/" as string | null,
   // Set once the domain is decided; used for absolute links in metadata.
   url: null as string | null,
 };
 
 // The pad: every top-level page is one numbered sheet.
 export const sheets = [
-  { n: 1, href: "/", label: "Index", blurb: "Who I am and what I build" },
-  { n: 2, href: "/work", label: "Work", blurb: "Projects, with the decisions behind them" },
-  { n: 3, href: "/writing", label: "Writing", blurb: "Engineering notes and write-ups" },
-  { n: 4, href: "/resume", label: "Resume", blurb: "Experience, education, and a PDF" },
+  { n: 1, href: "/", label: "Index" },
+  { n: 2, href: "/work", label: "Work" },
+  { n: 3, href: "/writing", label: "Writing" },
+  { n: 4, href: "/resume", label: "Resume" },
 ] as const;
 
 export const pad = (n: number) => String(n).padStart(2, "0");
+
+export function sheetFor(pathname: string) {
+  const match = [...sheets]
+    .reverse()
+    .find((s) => (s.href === "/" ? pathname === "/" : pathname === s.href || pathname.startsWith(`${s.href}/`)));
+  return match ?? sheets[0];
+}
