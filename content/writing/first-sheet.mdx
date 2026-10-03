@@ -1,0 +1,27 @@
+export const meta = {
+  title: "The first sheet",
+  date: "2026-10-04",
+  summary: "Why this site exists, how it is put together, and how a new post gets onto the pad.",
+};
+
+I want to write more about the engineering I do, and to do it somewhere I control. This site is that place. It is laid out like a pad of engineering computation sheets: each page is one sheet, with a title block at the top saying what it is and where it sits in the stack.
+
+## How it is built
+
+The site is a Next.js app, and every page is generated at build time. There is no database and no CMS. A post is a single MDX file in `content/writing/`, which exports a little metadata and then gets on with the writing:
+
+```mdx
+export const meta = {
+  title: "The first sheet",
+  date: "2026-10-04",
+  summary: "Why this site exists, and how a new post gets onto the pad.",
+};
+
+I want to write more about the engineering I do…
+```
+
+The writing index reads that folder, sorts posts by date, and numbers them as sheets. Adding a post is just committing a file.
+
+## What goes here
+
+Mostly write-ups of things I have built or debugged: the decision, the alternatives, and what it cost. Short is fine. A sheet is allowed to be one worked problem.
