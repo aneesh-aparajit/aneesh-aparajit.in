@@ -198,6 +198,26 @@ a:hover {
   border-left: 0;
   font-weight: 700;
 }
+/* Name cell: a small avatar beside the name, on every page. */
+.strip > .strip-name {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.625rem;
+}
+.strip-name-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+.strip-avatar {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--rule);
+}
+
 .strip a:hover,
 .strip button:hover {
   background: var(--stock-deep);
@@ -242,6 +262,37 @@ a:hover {
   max-width: 34em;
   color: var(--ink-soft);
   text-wrap: pretty;
+}
+
+/* Home intro: text on the left, the avatar on the right. */
+.intro-with-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title photo"
+    "lede photo"
+    "links photo";
+  column-gap: calc(var(--u) * 2);
+  align-items: start;
+}
+.intro-with-photo .title {
+  grid-area: title;
+}
+.intro-with-photo .lede {
+  grid-area: lede;
+}
+.intro-with-photo .links {
+  grid-area: links;
+}
+.avatar {
+  grid-area: photo;
+  display: block;
+  width: calc(var(--u) * 6);
+  height: auto;
+  aspect-ratio: 1;
+  padding: 0.25rem;
+  border: 1px solid var(--rule-strong);
+  background: var(--stock);
 }
 
 .links {
@@ -569,6 +620,17 @@ a:hover {
   .title {
     font-size: 1.75rem;
     line-height: 2.25rem;
+  }
+  .intro-with-photo {
+    grid-template-areas:
+      "title photo"
+      "lede lede"
+      "links links";
+    column-gap: var(--u);
+    align-items: center;
+  }
+  .avatar {
+    width: calc(var(--u) * 3);
   }
   .section {
     margin-top: calc(var(--u) * 2.5);

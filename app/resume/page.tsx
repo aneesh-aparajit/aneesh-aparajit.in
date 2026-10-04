@@ -15,7 +15,7 @@ export default function Resume() {
       <section className="intro">
         <h1 className="title">Resume</h1>
         <p className="lede">
-          Where I have been and what I built there. Mostly backend, occasionally a model, always a retry policy.
+          Where I have been and what I built there. Mostly backend, sometimes a search index, occasionally a model, always a retry policy.
         </p>
         <Links />
       </section>

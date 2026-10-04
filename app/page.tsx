@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Links } from "@/components/links";
 import { SectionHead, PostList, ProjectList, CvList } from "@/components/lists";
 import { site, sheetNo } from "@/lib/site";
@@ -11,10 +12,19 @@ export default async function Home() {
 
   return (
     <>
-      <section className="intro">
-        <h1 className="title">Hi, I&apos;m {site.shortName}.</h1>
+      <section className="intro intro-with-photo">
+        <h1 className="title">{site.name}.</h1>
         <p className="lede">{site.statement}</p>
         <Links />
+        <Image
+          className="avatar"
+          src={site.avatar.src}
+          alt={site.avatar.alt}
+          width={460}
+          height={460}
+          sizes="(max-width: 40rem) 72px, 144px"
+          priority
+        />
       </section>
 
       {flags.blogs && (

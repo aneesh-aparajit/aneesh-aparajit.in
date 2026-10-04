@@ -65,7 +65,7 @@ export const skills: { group: string; items: string }[] = [
 ];
 
 export const achievements: string[] = [
-  "Zeta Stellar Award (2025), along with 4 Spot Awards and 5 Ultimate Team Awards.",
+  "Zeta Stellar Award for 2026, along with 4 Spot Awards and 5 Ultimate Team Awards.",
   "First Runner-Up, NASSCOM Telangana AI Mission (TAIM) 2023, out of 7,500+ teams; Finalist, Bajaj HackRx 4.0 (top 36).",
   "Excellence Award for dichotomous image segmentation, Samsung PRISM.",
   "Open-source Python packages reddit-multimodal-crawler (9,100+ downloads) and torchtemplates (3,700+ downloads).",
