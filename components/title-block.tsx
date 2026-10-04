@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site, sheets, pad, sheetFor } from "@/lib/site";
+import { ThemeToggle } from "./theme-toggle";
 
 // The header: name and nav set as one ruled title-block strip.
 export function TitleBlock() {
@@ -20,6 +21,7 @@ export function TitleBlock() {
           <span>{s.label}</span>
         </Link>
       ))}
+      <ThemeToggle />
     </header>
   );
 }

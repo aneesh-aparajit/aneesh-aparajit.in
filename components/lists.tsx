@@ -21,6 +21,14 @@ export function SectionHead({
   );
 }
 
+// Anchor id for an entry, so compact home lists can link to it on its own page.
+const anchor = (...parts: string[]) =>
+  parts
+    .join("-")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 // The sheet number: hangs in the margin on wide screens, sits inline on phones.
 function SheetNo({ n }: { n: string }) {
   return (
@@ -76,13 +84,13 @@ export function ProjectList({
   return (
     <ol>
       {projects.map((p, i) => (
-        <li key={p.slug} className="item">
+        <li key={p.slug} id={compact ? undefined : p.slug} className="item">
           <h3 className="item-title">
             <SheetNo n={`${sheetNo("/work")}.${i + 1}`} />
-            {p.name}
+            {compact ? <Link href={`/work#${p.slug}`}>{p.name}</Link> : p.name}
           </h3>
           {p.year && <span className="item-meta mono">{p.year}</span>}
-          {!compact && <p className="item-body">{p.summary}</p>}
+          <p className="item-body">{compact ? p.tagline : p.summary}</p>
           {!compact && (
             <div className="item-stack">
               <span className="label">{p.stack.join(" · ")}</span>
@@ -112,32 +120,37 @@ export function ProjectList({
   );
 }
 
-// Three lines: organisation and tenure, role and location, then a one-line summary (dropped when compact).
+// Three lines: organisation and tenure, role and location, then the summary (or the tagline when compact).
 export function CvList({
   items,
   prefix,
   start = 0,
   compact = false,
+  href,
 }: {
   items: CvItem[];
   prefix: string;
   start?: number;
   compact?: boolean;
+  // When set (compact lists), each organisation links to its entry on this page.
+  href?: string;
 }) {
   return (
     <ol>
       {items.map((x, i) => (
-        <li key={`${x.org}-${x.title}`} className="item">
+        <li key={`${x.org}-${x.title}`} id={compact ? undefined : anchor(x.org, x.title)} className="item">
           <h3 className="item-title">
             <SheetNo n={`${prefix}.${start + i + 1}`} />
-            {x.org}
+            {href ? <Link href={`${href}#${anchor(x.org, x.title)}`}>{x.org}</Link> : x.org}
           </h3>
           <span className="item-meta mono">{x.when}</span>
           <p className="item-sub">
             <span>{x.title}</span>
             {x.place && <span className="item-place">{x.place}</span>}
           </p>
-          {!compact && x.summary && <p className="item-body">{x.summary}</p>}
+          {compact
+            ? x.tagline && <p className="item-body">{x.tagline}</p>
+            : x.summary && <p className="item-body">{x.summary}</p>}
         </li>
       ))}
     </ol>

@@ -23,13 +23,13 @@ The whole site, built in one visual world. The home page is **Persuade**, but qu
 THESIS: The classic minimal engineer site (one reading column of name, intro, links and plain lists), drawn on an engineering computation pad. It refuses both the showy frontend portfolio (hero, cards, motion) and the anonymous white template.
 
 OWN-WORLD:
-- A pale green computation-pad sheet with a faint full-bleed 1.5rem grid (major lines every 5 units). Ink is graphite; links are blue-black, with a thin underline.
+- A pale blue-grey computation-pad sheet with a faint full-bleed 1.5rem grid (major lines every 5 units). Ink is graphite; links are blue-black, with a thin underline.
 - The header is one ruled title-block strip of labelled cells (NAME / 02 Work / 03 Blogs / 04 Resume; sheet numbers close up when blogs are turned off).
 - Section headings are small condensed uppercase labels over a ruled line.
 - Lists are separated by hairlines.
 - Dates and sheet numbers are in Atkinson Mono. Sheet numbers hang in the left margin outside the column.
 - There are no cards, shadows, gradients, rounded corners or display type.
-- Dark mode is the same pad under a desk lamp: deep green-black with a dim grid.
+- Dark mode is the same pad under a desk lamp: deep blue-black with a dim grid. Light is the default; a Theme cell at the end of the header strip switches to dark and remembers the choice.
 
 STORY: Visitors learn who this is and that he is backend-first, see real writing and projects in plain lists, then email, open GitHub or the resume, or read a post.
 
