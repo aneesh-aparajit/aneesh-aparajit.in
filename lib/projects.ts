@@ -13,6 +13,24 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "vit-burn",
+    name: "vit-burn",
+    summary:
+      "A Vision Transformer written from scratch in Rust on the Burn framework, built to learn Rust. Convolutional patch embedding, learned position embeddings, multi-head attention encoder blocks and a pooler, assembled from a config and run on Burn's WGPU backend.",
+    stack: ["Rust", "Burn", "WGPU"],
+    year: "Apr 2024",
+    repo: "https://github.com/aneesh-aparajit/vit-burn",
+  },
+  {
+    slug: "malayallama",
+    name: "MalayaLLaMA",
+    summary:
+      "Teaching Llama 2 Malayalam. A SentencePiece BPE tokenizer trained on Malayalam text from CulturaX is merged into Llama's vocabulary, the 7B model gets continued pretraining with LoRA under DeepSpeed ZeRO-2, and a 4-bit LoRA pass with TRL fine-tunes it for chat.",
+    stack: ["PyTorch", "Transformers", "PEFT", "DeepSpeed", "SentencePiece"],
+    year: "Jan 2024",
+    repo: "https://github.com/aneesh-aparajit/llama",
+  },
+  {
     slug: "federatedgpt",
     name: "FederatedGPT",
     summary:

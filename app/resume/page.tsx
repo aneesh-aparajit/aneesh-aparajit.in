@@ -15,7 +15,7 @@ export default function Resume() {
       <section className="intro">
         <h1 className="title">Resume</h1>
         <p className="lede">
-          {site.role} at {site.company}, working on the backend.
+          Where I have been and what I built there. Mostly backend, occasionally a model, always a retry policy.
         </p>
         <Links />
       </section>

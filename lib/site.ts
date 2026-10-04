@@ -8,9 +8,9 @@ export const site = {
   shortName: "Aneesh",
   role: "Software Engineer II",
   company: "Zeta",
-  // The intro under "Hi, I'm Aneesh." Say plainly what you build.
+  // The intro under "Hi, I'm Aneesh." Also used for search and link previews.
   statement:
-    "Backend engineer at Zeta. I build payment, wallet and identity systems, and I write about how they work.",
+    "Backend engineer at Zeta, where I teach ledgers to agree with each other. Mostly Java and Go, Kafka and Flink, and an unreasonable fondness for idempotency keys.",
   email: "aneeshaparajit.g@gmail.com",
   github: "https://github.com/aneesh-aparajit",
   // Paste your LinkedIn profile URL to turn on the LinkedIn link.
