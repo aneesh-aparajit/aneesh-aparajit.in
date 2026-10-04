@@ -42,9 +42,10 @@ export function sheetNo(href: string) {
   return pad(sheets.find((s) => s.href === href)?.n ?? 0);
 }
 
+// The sheet a path belongs to, or undefined for a path that isn't on the pad (a 404).
 export function sheetFor(pathname: string) {
   const match = [...sheets]
     .reverse()
     .find((s) => (s.href === "/" ? pathname === "/" : pathname === s.href || pathname.startsWith(`${s.href}/`)));
-  return match ?? sheets[0];
+  return match;
 }

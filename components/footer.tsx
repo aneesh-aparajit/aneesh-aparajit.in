@@ -10,7 +10,8 @@ export function Footer() {
     <footer className="foot">
       <span className="label">{site.name}</span>
       <span className="label">
-        Sheet {pad(current.n)} of {pad(sheets.length)}
+        {/* A page that isn't on the pad gets its status code for a sheet number. */}
+        Sheet {current ? pad(current.n) : "404"} of {pad(sheets.length)}
       </span>
     </footer>
   );

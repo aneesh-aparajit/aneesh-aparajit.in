@@ -4,10 +4,10 @@ import { flags } from "@/lib/flags";
 import { SectionHead, PostList } from "@/components/lists";
 import { getPosts } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Blogs",
-  description: "Engineering notes and write-ups.",
-};
+// With blogs off this route 404s, so it shouldn't claim the "Blogs" title either.
+export const metadata: Metadata = flags.blogs
+  ? { title: "Blogs", description: "Engineering notes and write-ups." }
+  : { title: "Not found" };
 
 export default async function Blogs() {
   if (!flags.blogs) notFound();
