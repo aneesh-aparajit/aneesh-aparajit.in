@@ -1,0 +1,38 @@
+# Checks every pull request into master: lint and a production build.
+# Builds twice, with the blogs flag off (the default) and on, so neither
+# state of the site can break unnoticed.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        blogs: ["false", "true"]
+    name: lint and build (blogs ${{ matrix.blogs }})
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint
+
+      - run: pnpm build
+        env:
+          NEXT_PUBLIC_ENABLE_BLOGS: ${{ matrix.blogs }}

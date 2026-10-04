@@ -1,0 +1,63 @@
+# Production deploy: every push to master (i.e. every merged PR) is linted,
+# built with the Vercel CLI, and the prebuilt output is deployed to production.
+#
+# Needs three repository secrets (Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN       a token from https://vercel.com/account/tokens
+#   VERCEL_ORG_ID      "orgId" from .vercel/project.json after `vercel link`
+#   VERCEL_PROJECT_ID  "projectId" from the same file
+#
+# vercel.json turns off Vercel's own Git deploys for master, so production is
+# deployed once, from here. PRs still get Vercel preview deployments.
+
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Never run two production deploys at once; let a running one finish.
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      # Uses the pnpm version pinned in package.json ("packageManager").
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm lint
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@62
+
+      - name: Pull production settings and env vars
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
