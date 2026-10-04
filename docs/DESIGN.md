@@ -1,29 +1,29 @@
 ---
 name: Computation Pad
-description: One plain reading column drawn on a pale green engineering computation pad.
+description: One plain reading column drawn on a pale blue-grey engineering computation pad.
 colors:
-  stock: "#eaf0df"
-  stock-deep: "#e0e8d2"
-  grid: "#dfe7d4"
-  grid-major: "#d3ddc4"
-  rule: "#b9c9a6"
-  rule-strong: "#5f7650"
-  ink: "#22271f"
-  ink-soft: "#3f473a"
-  ink-faint: "#5a6451"
-  blue: "#1d4470"
-  blue-wash: "#d3dfdc"
-  lamp-stock: "#121810"
-  lamp-stock-deep: "#182015"
-  lamp-grid: "#182016"
-  lamp-grid-major: "#1f291b"
-  lamp-rule: "#33422c"
-  lamp-rule-strong: "#63795a"
-  lamp-ink: "#dfe7d3"
-  lamp-ink-soft: "#bcc6b0"
-  lamp-ink-faint: "#929d86"
+  stock: "#e9eff5"
+  stock-deep: "#dde6ef"
+  grid: "#dce5ef"
+  grid-major: "#cddaea"
+  rule: "#adc0d6"
+  rule-strong: "#4f6a88"
+  ink: "#1e2530"
+  ink-soft: "#3a4553"
+  ink-faint: "#525f73"
+  blue: "#1c4f96"
+  blue-wash: "#d3dff0"
+  lamp-stock: "#10151d"
+  lamp-stock-deep: "#161d27"
+  lamp-grid: "#151b24"
+  lamp-grid-major: "#1c2531"
+  lamp-rule: "#2d3a4c"
+  lamp-rule-strong: "#5b7593"
+  lamp-ink: "#dde5ef"
+  lamp-ink-soft: "#b4c0cf"
+  lamp-ink-faint: "#8f9cb0"
   lamp-blue: "#9cc0ea"
-  lamp-blue-wash: "#1c2b33"
+  lamp-blue-wash: "#1a2a40"
 typography:
   display:
     fontFamily: "Atkinson Hyperlegible Next, Atkinson Hyperlegible, system-ui, sans-serif"
@@ -141,9 +141,9 @@ components:
 
 **Creative North Star: "The Computation Pad"**
 
-The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale green stock, a faint full-bleed grid, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.
+The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock, a faint full-bleed grid, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.
 
-Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep green-black stock with a dim grid. Print drops the paper and the chrome and keeps the column.
+Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dim grid. Print drops the paper and the chrome and keeps the column.
 
 The world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.
 
@@ -157,7 +157,7 @@ The world deliberately refuses the showy frontend portfolio (hero, cards, motion
 
 ## Colors
 
-Low-chroma green paper and graphite ink, with one blue-black ink for anything you can act on.
+Low-chroma blue-grey paper and graphite ink, with one blue-black ink for anything you can act on.
 
 ### Primary
 - **Blue-Black Ink** (blue): links, link underlines (at 40% mix), the current header cell's label, focus rings, and text selection. It is the only chromatic ink.
@@ -175,12 +175,12 @@ Low-chroma green paper and graphite ink, with one blue-black ink for anything yo
 - **Faint Graphite** (ink-faint): labels, sheet numbers, place lines, "soon" placeholders and placeholder entries. Measured 5.3:1 on stock, 4.9:1 on deep stock.
 
 ### Lamp (dark theme)
-The `lamp-*` tokens are the same roles under a desk lamp, applied by `prefers-color-scheme: dark` unless `data-theme="light"` is set, or forced by `data-theme="dark"`. Roles map one to one: lamp-stock replaces stock, lamp-blue replaces blue, and so on. Never introduce a dark-only role.
+The `lamp-*` tokens are the same roles under a desk lamp, applied only when `data-theme="dark"` is set on the root. Light is the default whatever the OS prefers; the Theme cell at the end of the header strip switches modes, the choice is saved in localStorage, and a head script applies it before first paint. Roles map one to one: lamp-stock replaces stock, lamp-blue replaces blue, and so on. Never introduce a dark-only role.
 
 ### Named Rules
-**The One Ink Rule.** Blue-black is reserved for interaction (links, current location, focus, selection). Static text, rules and labels stay in the green-graphite family.
+**The One Ink Rule.** Blue-black is reserved for interaction (links, current location, focus, selection). Static text, rules and labels stay in the blue-graphite family.
 
-**The Paper Is the Palette Rule.** Every neutral is a step of the same pale green sheet or its graphite. No white, no grey, no second hue.
+**The Paper Is the Palette Rule.** Every neutral is a step of the same pale blue-grey sheet or its graphite. No white, no grey, no second hue.
 
 ## Typography
 
@@ -231,7 +231,7 @@ The system is completely flat. There are no shadows anywhere. Depth is conveyed 
 
 ## Shapes
 
-Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule green. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon is a hand-drawn SVG of the same pad: stock ground, grid, a strong margin line and a square-capped letterform.
+Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule slate blue. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon is a hand-drawn SVG of the same pad: stock ground, grid, a strong margin line and a square-capped letterform.
 
 ## Components
 

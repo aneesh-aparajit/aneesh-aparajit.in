@@ -3,6 +3,7 @@ import { Atkinson_Hyperlegible_Next, Atkinson_Hyperlegible_Mono, Barlow_Condense
 import { TitleBlock } from "@/components/title-block";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
+import { themeScript } from "@/components/theme-toggle";
 import "./globals.css";
 
 const atkinson = Atkinson_Hyperlegible_Next({
@@ -37,15 +38,19 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eaf0df" },
-    { media: "(prefers-color-scheme: dark)", color: "#121810" },
-  ],
+  themeColor: "#e9eff5",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${atkinson.variable} ${atkinsonMono.variable} ${barlow.variable}`}>
+    <html
+      lang="en"
+      className={`${atkinson.variable} ${atkinsonMono.variable} ${barlow.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <a className="skip" href="#main">
           Skip to content

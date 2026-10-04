@@ -4,6 +4,8 @@ export type CvItem = {
   when: string;
   title: string;
   place?: string;
+  // One line for the home page; the fuller summary shows on Resume.
+  tagline?: string;
   summary?: string;
 };
 
@@ -12,6 +14,7 @@ export const experience: CvItem[] = [
     org: "Zeta",
     when: "Jul 2026 – Present",
     title: "Software Engineer II",
+    tagline: "Payment authorization, wallet issuance and streaming reconciliation.",
     place: "Bengaluru",
     summary:
       "Payment authorization and ledger orchestration, wallet issuance, and stream processing on Apache Flink with Camunda workflows for reconciliation and audit reporting.",
@@ -20,6 +23,7 @@ export const experience: CvItem[] = [
     org: "Zeta",
     when: "Nov 2024 – Jul 2026",
     title: "Software Engineer I",
+    tagline: "Identity verification, merchant services and fraud controls.",
     place: "Bengaluru",
     summary:
       "Identity verification and merchant services, batch-job performance and observability, and fraud-prevention controls across onboarding and payments.",
@@ -28,6 +32,7 @@ export const experience: CvItem[] = [
     org: "Trademarkia",
     when: "Jan 2024 – Nov 2024",
     title: "Software Engineer",
+    tagline: "Search infrastructure and a document-signing platform.",
     place: "Chennai",
     summary:
       "Search infrastructure on Elasticsearch and vector databases, large-scale ingestion pipelines, and a document-signing platform in Go and Java.",
@@ -36,6 +41,7 @@ export const experience: CvItem[] = [
     org: "Samsung Research Institute Bangalore",
     when: "Jan 2024 – Nov 2024",
     title: "Software Engineer, PRISM (part-time)",
+    tagline: "Faster model training and internal research tooling.",
     place: "Remote",
     summary: "Model-training optimisation with LoRA fine-tuning, and internal tooling for the research team.",
   },

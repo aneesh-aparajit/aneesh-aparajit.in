@@ -31,7 +31,7 @@ export default async function Home() {
 
       <section className="section" aria-label="Experience">
         <SectionHead title="Experience" more={{ href: "/resume", label: "Full resume" }} />
-        <CvList items={experience} prefix={sheetNo("/resume")} compact />
+        <CvList items={experience} prefix={sheetNo("/resume")} compact href="/resume" />
       </section>
     </>
   );
