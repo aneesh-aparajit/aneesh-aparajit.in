@@ -2,14 +2,14 @@
 export type Project = {
   slug: string;
   name: string;
-  // One line for the home page; the full summary shows on Work.
+  // One line for the home page; the full summary shows on Projects.
   tagline: string;
   summary: string;
   stack: string[];
   year?: string;
   repo?: string;
   live?: string;
-  // One engineering decision and what it cost. Shown on the Work page.
+  // One engineering decision and what it cost. Shown on the Projects page.
   decision?: { choice: string; tradeoff: string };
 };
 

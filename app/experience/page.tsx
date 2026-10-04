@@ -5,24 +5,24 @@ import { site, sheetNo } from "@/lib/site";
 import { experience, education, skills, achievements } from "@/lib/resume";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "Experience",
   description: `${site.name}: backend engineer, ${site.role} at ${site.company}.`,
 };
 
-export default function Resume() {
+export default function Experience() {
   return (
     <>
       <section className="intro">
-        <h1 className="title">Resume</h1>
+        <h1 className="title">Experience</h1>
         <p className="lede">
-          Where I have been and what I built there. Mostly backend, occasionally a model, always a retry policy.
+          Where I have been and what I built there. Mostly backend, sometimes a search index, occasionally a model, always a retry policy.
         </p>
         <Links />
       </section>
 
-      <section className="section" aria-label="Experience">
-        <SectionHead title="Experience" />
-        <CvList items={experience} prefix={sheetNo("/resume")} />
+      <section className="section" aria-label="Roles">
+        <SectionHead title="Roles" />
+        <CvList items={experience} prefix={sheetNo("/experience")} />
       </section>
 
       <section className="section" aria-label="Skills">
@@ -39,7 +39,7 @@ export default function Resume() {
 
       <section className="section" aria-label="Education">
         <SectionHead title="Education" />
-        <CvList items={education} prefix={sheetNo("/resume")} start={experience.length} />
+        <CvList items={education} prefix={sheetNo("/experience")} start={experience.length} />
       </section>
 
       <section className="section" aria-label="Achievements">

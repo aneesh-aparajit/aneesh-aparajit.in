@@ -231,7 +231,7 @@ The system is completely flat. There are no shadows anywhere. Depth is conveyed 
 
 ## Shapes
 
-Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule slate blue. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon is a hand-drawn SVG of the same pad: stock ground, grid, a strong margin line and a square-capped letterform.
+Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule slate blue. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon and Apple touch icon are the owner's avatar, resized from the same image used in the intro and the header's Name cell.
 
 ## Components
 
@@ -251,6 +251,9 @@ The header is one ruled strip, like the title block on a drawing sheet.
 - **Current page:** blue-wash background and blue label (not applied to the name cell).
 - **Focus:** the outline is pulled inside the cell (-3px offset).
 - **Phones:** the name cell spans the full width above three equal nav cells.
+
+### Intro Avatar
+The home intro carries one square image on the right: the owner's avatar, framed like a print clipped to the pad, with 0.25rem of paper inside a 1px strong rule and square corners. It spans the intro's rows at 6u wide on desktop and sits beside the title at 3u on phones. The same image also appears at 1.75rem inside the header strip's Name cell on every page, framed by a 1px hairline and marked decorative because the name sits beside it. It is the only raster on the site; nothing else gets an image, a frame or a shadow.
 
 ### Section Head
 A label over a strong rule: Barlow label on the left, an optional "all" link (0.9375rem) aligned on the right baseline, 0.625rem gap to the rule.

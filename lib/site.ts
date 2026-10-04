@@ -11,6 +11,11 @@ export const site = {
   // The intro under "Hi, I'm Aneesh." Also used for search and link previews.
   statement:
     "Backend engineer at Zeta, where I teach ledgers to agree with each other. Mostly Java and Go, Kafka and Flink, and an unreasonable fondness for idempotency keys.",
+  // GitHub avatar, saved locally so the site has no runtime dependency on GitHub.
+  avatar: {
+    src: "/avatar.jpg",
+    alt: "Illustration of a white cat with its eyes closed, sitting behind a mug of coffee",
+  },
   email: "aneeshaparajit.g@gmail.com",
   github: "https://github.com/aneesh-aparajit",
   // Paste your LinkedIn profile URL to turn on the LinkedIn link.
@@ -23,16 +28,16 @@ export const site = {
 // assigned in order, so turning a section off closes the gap.
 const allSheets = [
   { href: "/", label: "Index", enabled: true },
-  { href: "/work", label: "Work", enabled: true },
+  { href: "/projects", label: "Projects", enabled: true },
   { href: "/blogs", label: "Blogs", enabled: flags.blogs },
-  { href: "/resume", label: "Resume", enabled: true },
+  { href: "/experience", label: "Experience", enabled: true },
 ];
 
 export const sheets = allSheets.filter((s) => s.enabled).map((s, i) => ({ n: i + 1, href: s.href, label: s.label }));
 
 export const pad = (n: number) => String(n).padStart(2, "0");
 
-// The padded sheet number for a top-level page, e.g. sheetNo("/work") === "02".
+// The padded sheet number for a top-level page, e.g. sheetNo("/projects") === "02".
 export function sheetNo(href: string) {
   return pad(sheets.find((s) => s.href === href)?.n ?? 0);
 }

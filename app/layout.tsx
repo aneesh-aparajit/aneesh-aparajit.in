@@ -3,7 +3,7 @@ import { Atkinson_Hyperlegible_Next, Atkinson_Hyperlegible_Mono, Barlow_Condense
 import { TitleBlock } from "@/components/title-block";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
-import { themeScript } from "@/components/theme-toggle";
+import { ThemeScript } from "@/components/theme-toggle";
 import "./globals.css";
 
 const atkinson = Atkinson_Hyperlegible_Next({
@@ -25,7 +25,7 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   ...(site.url ? { metadataBase: new URL(site.url) } : {}),
   title: {
-    default: `${site.name}, backend engineer`,
+    default: `${site.name}.`,
     template: `%s · ${site.name}`,
   },
   description: site.statement,
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeScript />
       </head>
       <body>
         <a className="skip" href="#main">

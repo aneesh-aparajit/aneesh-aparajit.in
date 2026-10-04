@@ -9,6 +9,15 @@ const KEY = "theme";
 // Runs in <head> before first paint so a saved dark choice never flashes light.
 export const themeScript = `try{if(localStorage.getItem("${KEY}")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
 
+// Server-only: the script ships in the HTML and runs before first paint. On the
+// client it renders nothing, so React never creates a <script> element (which it
+// warns about and would not execute anyway); React 19 skips the extra <head> node
+// during hydration.
+export function ThemeScript() {
+  if (typeof window !== "undefined") return null;
+  return <script dangerouslySetInnerHTML={{ __html: themeScript }} />;
+}
+
 function read(): Theme {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Links } from "@/components/links";
 import { SectionHead, PostList, ProjectList, CvList } from "@/components/lists";
 import { site, sheetNo } from "@/lib/site";
@@ -11,10 +12,19 @@ export default async function Home() {
 
   return (
     <>
-      <section className="intro">
-        <h1 className="title">Hi, I&apos;m {site.shortName}.</h1>
+      <section className="intro intro-with-photo">
+        <h1 className="title">{site.name}.</h1>
         <p className="lede">{site.statement}</p>
         <Links />
+        <Image
+          className="avatar"
+          src={site.avatar.src}
+          alt={site.avatar.alt}
+          width={460}
+          height={460}
+          sizes="(max-width: 40rem) 72px, 144px"
+          priority
+        />
       </section>
 
       {flags.blogs && (
@@ -25,13 +35,13 @@ export default async function Home() {
       )}
 
       <section className="section" aria-label="Projects">
-        <SectionHead title="Projects" more={{ href: "/work", label: "All projects" }} />
+        <SectionHead title="Projects" more={{ href: "/projects", label: "All projects" }} />
         <ProjectList projects={projects.slice(0, 3)} compact />
       </section>
 
       <section className="section" aria-label="Experience">
-        <SectionHead title="Experience" more={{ href: "/resume", label: "Full resume" }} />
-        <CvList items={experience} prefix={sheetNo("/resume")} compact href="/resume" />
+        <SectionHead title="Experience" more={{ href: "/experience", label: "Full experience" }} />
+        <CvList items={experience} prefix={sheetNo("/experience")} compact href="/experience" />
       </section>
     </>
   );
