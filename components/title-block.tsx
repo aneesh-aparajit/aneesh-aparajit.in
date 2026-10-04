@@ -20,12 +20,14 @@ export function TitleBlock() {
           <span>{site.name}</span>
         </span>
       </Link>
-      {sheets.slice(1).map((s) => (
-        <Link key={s.href} href={s.href} aria-current={s.n === current.n ? "page" : undefined}>
-          <span className="label">{pad(s.n)}</span>
-          <span>{s.label}</span>
-        </Link>
-      ))}
+      <nav className="strip-nav" aria-label="Sections">
+        {sheets.slice(1).map((s) => (
+          <Link key={s.href} href={s.href} aria-current={s.n === current.n ? "page" : undefined}>
+            <span className="label">{pad(s.n)}</span>
+            <span>{s.label}</span>
+          </Link>
+        ))}
+      </nav>
       <ThemeToggle />
     </header>
   );

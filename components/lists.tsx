@@ -86,8 +86,8 @@ export function ProjectList({
       {projects.map((p, i) => (
         <li key={p.slug} id={compact ? undefined : p.slug} className="item">
           <h3 className="item-title">
-            <SheetNo n={`${sheetNo("/work")}.${i + 1}`} />
-            {compact ? <Link href={`/work#${p.slug}`}>{p.name}</Link> : p.name}
+            <SheetNo n={`${sheetNo("/projects")}.${i + 1}`} />
+            {compact ? <Link href={`/projects#${p.slug}`}>{p.name}</Link> : p.name}
           </h3>
           {p.year && <span className="item-meta mono">{p.year}</span>}
           <p className="item-body">{compact ? p.tagline : p.summary}</p>

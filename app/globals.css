@@ -173,6 +173,7 @@ a:hover {
 
 /* ---------- header: one ruled title-block strip ---------- */
 
+/* Cells: the name, each section link (inside .strip-nav) and the theme button. */
 .strip {
   display: grid;
   grid-template-columns: 1fr;
@@ -181,7 +182,13 @@ a:hover {
   border: 1px solid var(--rule-strong);
   background: var(--stock);
 }
-.strip > * {
+/* On wide screens the nav is invisible to layout; its links are strip cells. */
+.strip-nav {
+  display: contents;
+}
+.strip > a,
+.strip > button,
+.strip-nav > a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,16 +201,14 @@ a:hover {
   line-height: 1.25;
   transition: background-color 160ms var(--ease-out);
 }
-.strip > :first-child {
-  border-left: 0;
-  font-weight: 700;
-}
 /* Name cell: a small avatar beside the name, on every page. */
 .strip > .strip-name {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0.625rem;
+  border-left: 0;
+  font-weight: 700;
 }
 .strip-name-text {
   display: flex;
@@ -235,10 +240,10 @@ a:hover {
 .strip button:focus-visible {
   outline-offset: -3px;
 }
-.strip a[aria-current="page"]:not(:first-child) {
+.strip-nav a[aria-current="page"] {
   background: var(--blue-wash);
 }
-.strip a[aria-current="page"]:not(:first-child) .label {
+.strip-nav a[aria-current="page"] .label {
   color: var(--blue);
 }
 .strip a:focus-visible {
@@ -599,18 +604,31 @@ a:hover {
   .col {
     padding: calc(var(--u) * 1.5) 1.25rem calc(var(--u) * 3);
   }
+  /* Phones: name and theme share the top row; sections get a full row below. */
   .strip {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "name theme"
+      "nav nav";
   }
-  .strip > * {
-    flex: 1 1 0;
-  }
-  .strip > :first-child {
-    flex-basis: 100%;
+  .strip > .strip-name {
+    grid-area: name;
     border-bottom: 1px solid var(--rule);
   }
-  .strip > :nth-child(2) {
+  .strip > button {
+    grid-area: theme;
+    border-bottom: 1px solid var(--rule);
+  }
+  .strip-nav {
+    grid-area: nav;
+    display: flex;
+  }
+  .strip-nav > a {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .strip-nav > a:first-child {
     border-left: 0;
   }
   .intro,

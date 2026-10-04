@@ -32,7 +32,7 @@ An early-career software engineer, currently SDE 2 at Directi, working primarily
 ## Capabilities and Constraints
 
 - Sections required: projects, blog/writing, resume/work history, contact.
-- Resume is offered both as a web page and as a PDF download (owner will supply the PDF).
+- Work history is offered as a web page (the Experience section); there is no PDF download.
 - Contact: email and LinkedIn (LinkedIn URL to be supplied).
 - Undecided: which projects to feature and how they are described; domain.
 

@@ -35,13 +35,13 @@ export default async function Home() {
       )}
 
       <section className="section" aria-label="Projects">
-        <SectionHead title="Projects" more={{ href: "/work", label: "All projects" }} />
+        <SectionHead title="Projects" more={{ href: "/projects", label: "All projects" }} />
         <ProjectList projects={projects.slice(0, 3)} compact />
       </section>
 
       <section className="section" aria-label="Experience">
-        <SectionHead title="Experience" more={{ href: "/resume", label: "Full resume" }} />
-        <CvList items={experience} prefix={sheetNo("/resume")} compact href="/resume" />
+        <SectionHead title="Experience" more={{ href: "/experience", label: "Full experience" }} />
+        <CvList items={experience} prefix={sheetNo("/experience")} compact href="/experience" />
       </section>
     </>
   );

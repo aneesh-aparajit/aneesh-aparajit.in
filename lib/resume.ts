@@ -4,7 +4,7 @@ export type CvItem = {
   when: string;
   title: string;
   place?: string;
-  // One line for the home page; the fuller summary shows on Resume.
+  // One line for the home page; the fuller summary shows on Experience.
   tagline?: string;
   summary?: string;
 };
