@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Links } from "@/components/links";
 import { SectionHead, CvList } from "@/components/lists";
-import { site } from "@/lib/site";
+import { site, sheetNo } from "@/lib/site";
 import { experience, education, skills, achievements } from "@/lib/resume";
 
 export const metadata: Metadata = {
@@ -15,14 +15,14 @@ export default function Resume() {
       <section className="intro">
         <h1 className="title">Resume</h1>
         <p className="lede">
-          {site.role} at {site.company}, working on the backend.
+          Where I have been and what I built there. Mostly backend, occasionally a model, always a retry policy.
         </p>
         <Links />
       </section>
 
       <section className="section" aria-label="Experience">
         <SectionHead title="Experience" />
-        <CvList items={experience} prefix="04" />
+        <CvList items={experience} prefix={sheetNo("/resume")} />
       </section>
 
       <section className="section" aria-label="Skills">
@@ -39,7 +39,7 @@ export default function Resume() {
 
       <section className="section" aria-label="Education">
         <SectionHead title="Education" />
-        <CvList items={education} prefix="04" start={experience.length} />
+        <CvList items={education} prefix={sheetNo("/resume")} start={experience.length} />
       </section>
 
       <section className="section" aria-label="Achievements">

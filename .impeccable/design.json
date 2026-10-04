@@ -446,7 +446,7 @@
       "kind": "custom",
       "refersTo": "section-head",
       "description": "Condensed uppercase label over a strong rule, with an optional right-aligned link.",
-      "html": "<div class=\"ds-head\"><h2 class=\"ds-label\">Writing</h2><a href=\"#\">All writing</a></div>",
+      "html": "<div class=\"ds-head\"><h2 class=\"ds-label\">Blogs</h2><a href=\"#\">All posts</a></div>",
       "css": ".ds-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:0.625rem;border-bottom:1px solid var(--rule-strong,#5f7650);background:var(--stock,#eaf0df);font-family:var(--font-body,\"Atkinson Hyperlegible\",system-ui,sans-serif)}.ds-head h2{margin:0}.ds-head a{font-size:0.9375rem;color:var(--blue,#1d4470);text-decoration-thickness:1px;text-underline-offset:0.22em;text-decoration-color:color-mix(in oklab,var(--blue,#1d4470) 40%,transparent);transition:text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1)}.ds-head a:hover{text-decoration-color:currentColor}.ds-label{font-family:var(--font-label,\"Barlow Condensed\",\"Arial Narrow\",sans-serif);font-weight:600;font-size:0.75rem;line-height:1rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink-faint,#5a6451)}"
     },
     {

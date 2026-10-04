@@ -4,7 +4,7 @@ import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Projects, with the engineering decisions behind them.",
+  description: "Side projects, newest first.",
 };
 
 export default function Work() {
@@ -13,7 +13,7 @@ export default function Work() {
       <section className="intro">
         <h1 className="title">Work</h1>
         <p className="lede">
-          Things I have built, newest first.
+          Things I built when I probably should have been asleep. Models that learned in secret, crawlers that asked Reddit nicely, and tools that write the boring code so 3 a.m. me doesn&apos;t have to.
         </p>
       </section>
 

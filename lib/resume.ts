@@ -59,9 +59,9 @@ export const skills: { group: string; items: string }[] = [
 ];
 
 export const achievements: string[] = [
-  "Zeta Stellar Award (2025), along with Spot and Ultimate Team Awards.",
-  "First Runner-Up, NASSCOM Telangana AI Mission (TAIM) 2023; Finalist, Bajaj HackRx 4.0.",
+  "Zeta Stellar Award (2025), along with 4 Spot Awards and 5 Ultimate Team Awards.",
+  "First Runner-Up, NASSCOM Telangana AI Mission (TAIM) 2023, out of 7,500+ teams; Finalist, Bajaj HackRx 4.0 (top 36).",
   "Excellence Award for dichotomous image segmentation, Samsung PRISM.",
-  "Open-source Python packages reddit-multimodal-crawler and torchtemplates.",
-  "Kaggle Expert in Datasets and Notebooks.",
+  "Open-source Python packages reddit-multimodal-crawler (9,100+ downloads) and torchtemplates (3,700+ downloads).",
+  "2x Kaggle Expert: top 0.6% in Datasets and top 0.7% in Notebooks.",
 ];
