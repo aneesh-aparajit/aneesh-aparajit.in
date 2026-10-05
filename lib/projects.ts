@@ -43,8 +43,8 @@ export const projects: Project[] = [
     name: "vit-burn",
     tagline: "A Vision Transformer written from scratch in Rust on the Burn framework, from patch embeddings to attention, mostly to learn Rust.",
     summary:
-      "A Vision Transformer written from scratch in Rust on the Burn framework, built to learn Rust. Convolutional patch embedding, learned position embeddings, multi-head attention encoder blocks and a pooler, assembled from a config and run on Burn's WGPU backend.",
-    stack: ["Rust", "Burn", "WGPU"],
+      "A Vision Transformer written from scratch in Rust on the Burn framework, built to learn Rust. Convolutional patch embedding, learned position embeddings, multi-head attention encoder blocks and a pooler, assembled from a config.",
+    stack: ["Rust", "Burn"],
     status: "study",
     year: "Apr 2024",
     repo: "https://github.com/aneesh-aparajit/vit-burn",
