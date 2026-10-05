@@ -10,7 +10,7 @@ export const site = {
   company: "Zeta",
   // The intro under "Hi, I'm Aneesh." Also used for search and link previews.
   statement:
-    "Backend engineer at Zeta, where I teach ledgers to agree with each other. Mostly Java and Go, Kafka and Flink, and an unreasonable fondness for idempotency keys.",
+    "Backend engineer at Zeta, where I teach ledgers to agree with each other. Mostly Java, Go and Python, Kafka and Flink, and an unreasonable fondness for idempotency keys.",
   // GitHub avatar, saved locally so the site has no runtime dependency on GitHub.
   avatar: {
     src: "/avatar.jpg",

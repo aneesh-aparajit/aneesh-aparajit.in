@@ -1,4 +1,4 @@
-// Keep summaries high level and about the engineering: no metrics, partner or product names.
+// Keep summaries about the engineering: no metrics, partner or product names.
 export type CvItem = {
   org: string;
   when: string;
@@ -14,36 +14,37 @@ export const experience: CvItem[] = [
     org: "Zeta",
     when: "Jul 2026 – Present",
     title: "Software Engineer II",
-    tagline: "Payment authorization, wallet issuance and streaming reconciliation.",
+    tagline: "Payment authorization between our ledger and a partner bank's, wallet issuance, and streaming reconciliation on Flink.",
     place: "Bengaluru",
     summary:
-      "Payment authorization and ledger orchestration, wallet issuance, and stream processing on Apache Flink with Camunda workflows for reconciliation and audit reporting.",
+      "Co-designed the authorization gateway for savings-account bill payments, bridging our ledger and a partner bank's, and built idempotent reconciliation and regulatory reporting pipelines on Apache Flink with Camunda workflows.",
   },
   {
     org: "Zeta",
     when: "Nov 2024 – Jul 2026",
     title: "Software Engineer I",
-    tagline: "Identity verification, merchant services and fraud controls.",
+    tagline: "Identity verification and merchant services, plus fraud controls across onboarding and payments.",
     place: "Bengaluru",
     summary:
-      "Identity verification and merchant services, batch-job performance and observability, and fraud-prevention controls across onboarding and payments.",
+      "Owned the KYC and merchant modules, redesigning KYC around PAN, bank-account and video verification, and shipped fraud controls such as inbound OTP checks and card cool-off limits.",
   },
   {
     org: "Trademarkia",
     when: "Jan 2024 – Nov 2024",
     title: "Software Engineer",
-    tagline: "Search infrastructure and a document-signing platform.",
+    tagline: "A document-signing platform in Go and Java, and trademark and court-case search on Elasticsearch.",
     place: "Chennai",
     summary:
-      "Search infrastructure on Elasticsearch and vector databases, large-scale ingestion pipelines, and a document-signing platform in Go and Java.",
+      "Built a document-signing platform in Go and Java with role-based access, and logo and court-case search on Elasticsearch and Qdrant fed by automated ingestion jobs.",
   },
   {
     org: "Samsung Research Institute Bangalore",
     when: "Jan 2024 – Nov 2024",
     title: "Software Engineer, PRISM (part-time)",
-    tagline: "Faster model training and internal research tooling.",
+    tagline: "Faster model training with LoRA, and internal tools for the research team.",
     place: "Remote",
-    summary: "Model-training optimisation with LoRA fine-tuning, and internal tooling for the research team.",
+    summary:
+      "Sped up model training with LoRA fine-tuning to make video processing practical, and built internal web and desktop tools for the research team.",
   },
 ];
 
