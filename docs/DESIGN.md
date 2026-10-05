@@ -263,8 +263,11 @@ The repeated unit for posts, projects and experience entries.
 - **Shape:** no box; a hairline rule below each entry, 1rem vertical padding.
 - **Content:** bold title (with link in blue when it leads somewhere), mono meta at top right, soft-graphite description below.
 - **Sheet number:** a mono number in the form page.index hangs in the left margin (see Layout).
-- **Variants:** post entry (title, date, summary); project entry (adds a stack label line and outbound arrow links, and optionally a decision note); experience/education entry, always three lines (organisation with date range; role or degree with place in faint graphite, set as one full-width row; an optional one-line summary).
+- **Variants:** post entry (title, date, summary); project entry (adds a status stamp after the title, a stack label line and outbound arrow links, and optionally a decision note); experience/education entry (organisation with date range; role or degree with place in faint graphite, set as one full-width row; then an optional summary sentence on the Experience page, or a one-line tagline in compact lists).
 - **Placeholder:** dashed bottom rule and faint graphite text, so unconfirmed content is visibly provisional.
+
+### Status Stamp
+Project entries carry a stamp after the title, like the issue status on a drawing: a Barlow label inside a 1px rule with 0 0.375rem padding and square corners. There are four states and none of them is negative: **In progress** (commits still landing) has a dashed strong rule and soft-graphite text, following the dashed-means-provisional rule; **Released** (published for others to install) has a solid strong rule and soft-graphite text; **Complete** and **Study** (built to learn) have a hairline rule and faint-graphite text. Stamps never take blue. Statuses come from the repository history, never from guesswork.
 
 ### Decision Note
 A two-column definition list hung off a 1px strong left rule: label terms on the left, soft-graphite answers on the right, 0.9375rem at 1.5 line height. Stacks to one column on phones.

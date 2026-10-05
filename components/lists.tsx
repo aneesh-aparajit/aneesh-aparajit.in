@@ -3,6 +3,7 @@ import { Arrow } from "./arrow";
 import type { Post } from "@/lib/posts";
 import { formatDate } from "@/lib/posts";
 import type { Project } from "@/lib/projects";
+import { statusLabel } from "@/lib/projects";
 import type { CvItem } from "@/lib/resume";
 import { sheetNo } from "@/lib/site";
 
@@ -88,24 +89,23 @@ export function ProjectList({
           <h3 className="item-title">
             <SheetNo n={`${sheetNo("/projects")}.${i + 1}`} />
             {compact ? <Link href={`/projects#${p.slug}`}>{p.name}</Link> : p.name}
+            <span className={`stamp label stamp-${p.status}`}>{statusLabel[p.status]}</span>
           </h3>
           {p.year && <span className="item-meta mono">{p.year}</span>}
           <p className="item-body">{compact ? p.tagline : p.summary}</p>
-          {!compact && (
-            <div className="item-stack">
-              <span className="label">{p.stack.join(" · ")}</span>
-              {p.repo && (
-                <a href={p.repo} target="_blank" rel="noreferrer">
-                  Repository <Arrow />
-                </a>
-              )}
-              {p.live && (
-                <a href={p.live} target="_blank" rel="noreferrer">
-                  Live <Arrow />
-                </a>
-              )}
-            </div>
-          )}
+          <div className="item-stack">
+            <span className="label">{p.stack.join(" · ")}</span>
+            {p.repo && (
+              <a href={p.repo} target="_blank" rel="noreferrer">
+                Repository <Arrow />
+              </a>
+            )}
+            {p.live && (
+              <a href={p.live} target="_blank" rel="noreferrer">
+                Live <Arrow />
+              </a>
+            )}
+          </div>
           {notes && p.decision && (
             <dl className="note">
               <dt className="label">Decision</dt>
