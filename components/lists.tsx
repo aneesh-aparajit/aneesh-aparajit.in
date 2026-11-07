@@ -88,7 +88,7 @@ export function ProjectList({
         <li key={p.slug} id={compact ? undefined : p.slug} className="item">
           <h3 className="item-title">
             <SheetNo n={`${sheetNo("/projects")}.${i + 1}`} />
-            {compact ? <Link href={`/projects#${p.slug}`}>{p.name}</Link> : p.name}
+            <Link href={`/projects/${p.slug}`}>{p.name}</Link>
             <span className={`stamp label stamp-${p.status}`}>{statusLabel[p.status]}</span>
           </h3>
           {p.year && <span className="item-meta mono">{p.year}</span>}
