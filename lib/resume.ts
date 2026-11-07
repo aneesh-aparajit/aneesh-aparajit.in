@@ -65,10 +65,31 @@ export const skills: { group: string; items: string }[] = [
   { group: "Machine learning", items: "PyTorch, Transformers, LoRA/PEFT fine-tuning" },
 ];
 
-export const achievements: string[] = [
-  "Zeta Stellar Award for 2026, along with 4 Spot Awards and 5 Ultimate Team Awards.",
-  "First Runner-Up, NASSCOM Telangana AI Mission (TAIM) 2023, out of 7,500+ teams; Finalist, Bajaj HackRx 4.0 (top 36).",
-  "Excellence Award for dichotomous image segmentation, Samsung PRISM.",
-  "Open-source Python packages reddit-multimodal-crawler (9,100+ downloads) and torchtemplates (3,700+ downloads).",
-  "2x Kaggle Expert: top 0.6% in Datasets and top 0.7% in Notebooks.",
+// Title, one line of detail, and a short mark (a year or a figure) when the fact states one.
+export type Achievement = { title: string; detail: string; mark?: string };
+
+export const achievements: Achievement[] = [
+  {
+    title: "Zeta Stellar Award",
+    mark: "2026",
+    detail: "For 2026, along with 4 Spot Awards and 5 Ultimate Team Awards.",
+  },
+  {
+    title: "NASSCOM TAIM, First Runner-Up",
+    mark: "2023",
+    detail: "Telangana AI Mission 2023, out of 7,500+ teams. Also a finalist at Bajaj HackRx 4.0 (top 36).",
+  },
+  {
+    title: "Samsung PRISM Excellence Award",
+    detail: "For dichotomous image segmentation.",
+  },
+  {
+    title: "Open-source packages",
+    mark: "12,800+",
+    detail: "Downloads of reddit-multimodal-crawler (9,100+) and torchtemplates (3,700+) on PyPI.",
+  },
+  {
+    title: "2x Kaggle Expert",
+    detail: "Top 0.6% in Datasets and top 0.7% in Notebooks.",
+  },
 ];

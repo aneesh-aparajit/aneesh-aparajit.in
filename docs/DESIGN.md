@@ -1,6 +1,6 @@
 ---
 name: Computation Pad
-description: One plain reading column drawn on a pale blue-grey engineering computation pad.
+description: A drawing sheet on a pale blue-grey engineering computation pad, with a title-block rail beside the work.
 colors:
   stock: "#e9eff5"
   stock-deep: "#dde6ef"
@@ -98,18 +98,20 @@ spacing:
   u3: "4.5rem"
   u5: "7.5rem"
   column: "42rem"
+  rail: "19.5rem"
+  sheet: "87rem"
 components:
   link:
     textColor: "{colors.blue}"
-  header-cell:
+  rail-cell:
     backgroundColor: "{colors.stock}"
     textColor: "{colors.ink}"
     rounded: "{rounded.none}"
-    padding: "0.25rem 1rem"
+    padding: "0 1.25rem"
     height: "3rem"
-  header-cell-hover:
+  rail-cell-hover:
     backgroundColor: "{colors.stock-deep}"
-  header-cell-current:
+  rail-cell-current:
     backgroundColor: "{colors.blue-wash}"
     textColor: "{colors.ink}"
   list-item:
@@ -141,15 +143,15 @@ components:
 
 **Creative North Star: "The Computation Pad"**
 
-The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock, a faint full-bleed grid, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.
+The site is the classic minimal engineer page (name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock, a faint full-bleed grid, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Every structural mark is a 1px line. The sheet is laid out like a drawing: a title-block rail on the left says who this is and indexes the sheets, and the body on the right carries the work, with prose held to a 42rem measure.
 
-Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dim grid. Print drops the paper and the chrome and keeps the column.
+Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The title block is a ruled rail of labelled fields that stays beside the work as you scroll, projects are listed as a ruled schedule, and every entry carries a sheet number the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dim grid. Print drops the paper and the rail and keeps the body.
 
 The world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.
 
 **Key Characteristics:**
-- One centred 42rem reading column; no multi-column layouts.
-- Full-bleed 1.5rem minor grid with 7.5rem majors, registered to the column.
+- A 13u title-block rail beside a 42u body; prose and project sheets keep a 42rem measure inside the body.
+- Full-bleed 1.5rem minor grid with 7.5rem majors, registered to the sheet, rail and body edges.
 - Structure by 1px rules only: square corners, no shadows, no filled panels except code.
 - Three voices of type: humanist sans for reading, condensed uppercase for labels, mono for numbers.
 - One accent (blue-black ink) carried only by links, the current nav cell, focus and selection.
@@ -160,22 +162,22 @@ The world deliberately refuses the showy frontend portfolio (hero, cards, motion
 Low-chroma blue-grey paper and graphite ink, with one blue-black ink for anything you can act on.
 
 ### Primary
-- **Blue-Black Ink** (blue): links, link underlines (at 40% mix), the current header cell's label, focus rings, and text selection. It is the only chromatic ink.
-- **Blue Wash** (blue-wash): the background of the current-page cell in the header strip. Nowhere else.
+- **Blue-Black Ink** (blue): links, link underlines (at 40% mix), the current index cell's label, focus rings, and text selection. It is the only chromatic ink.
+- **Blue Wash** (blue-wash): the background of the current-page cell in the title-block rail. Nowhere else.
 
 ### Neutral
-- **Pad Stock** (stock): the page and the header strip ground. Also the selection text colour and the browser theme colour.
-- **Deep Stock** (stock-deep): the one tonal step down: header-cell hover, code blocks and inline code.
+- **Pad Stock** (stock): the page and the title-block rail ground. Also the selection text colour and the browser theme colour.
+- **Deep Stock** (stock-deep): the one tonal step down: rail-cell hover, schedule row hover, code blocks and inline code.
 - **Minor Grid Line** (grid): 1px lines every 1.5rem across the whole viewport.
 - **Major Grid Line** (grid-major): 1px lines every 7.5rem, drawn over the minor grid.
-- **Hairline Rule** (rule): list-item separators, header cell dividers, footer rule, code borders, horizontal rules.
-- **Strong Rule** (rule-strong): the header strip outline, section-head underlines, the post-turn rule, blockquote and decision-note left rules, list markers, and the scrollbar thumb.
+- **Hairline Rule** (rule): list-item and schedule-row separators, rail field dividers, footer rule, code borders, horizontal rules.
+- **Strong Rule** (rule-strong): the rail outline, avatar frame, section-head underlines, the post-turn rule, blockquote and decision-note left rules, list markers, and the scrollbar thumb.
 - **Graphite** (ink): headings and body text.
 - **Soft Graphite** (ink-soft): ledes, item descriptions, blockquotes, mono metadata.
 - **Faint Graphite** (ink-faint): labels, sheet numbers, place lines, "soon" placeholders and placeholder entries. Measured 5.3:1 on stock, 4.9:1 on deep stock.
 
 ### Lamp (dark theme)
-The `lamp-*` tokens are the same roles under a desk lamp, applied only when `data-theme="dark"` is set on the root. Light is the default whatever the OS prefers; the Theme cell at the end of the header strip switches modes, the choice is saved in localStorage, and a head script applies it before first paint. Roles map one to one: lamp-stock replaces stock, lamp-blue replaces blue, and so on. Never introduce a dark-only role.
+The `lamp-*` tokens are the same roles under a desk lamp, applied only when `data-theme="dark"` is set on the root. Light is the default whatever the OS prefers; the Theme cell at the foot of the title-block rail switches modes, the choice is saved in localStorage, and a head script applies it before first paint. Roles map one to one: lamp-stock replaces stock, lamp-blue replaces blue, and so on. Never introduce a dark-only role.
 
 ### Named Rules
 **The One Ink Rule.** Blue-black is reserved for interaction (links, current location, focus, selection). Static text, rules and labels stay in the blue-graphite family.
@@ -196,7 +198,7 @@ The `lamp-*` tokens are the same roles under a desk lamp, applied only when `dat
 - **Title** (700, 1.0625rem): list-entry titles; prose h3 runs slightly larger (1.1875rem).
 - **Body** (400, 1.0625rem, 1.6): interface text; ledes cap at 34em, item descriptions at 36em.
 - **Body Prose** (400, 1.125rem, 1.75; 1.0625rem on phones): post bodies, with 1.25rem between blocks.
-- **Label** (Barlow Condensed 600, 0.75rem on a 1rem line, 0.09em, uppercase): section heads, header cell field names, footer, decision-note terms, previous/next markers, stack lines.
+- **Label** (Barlow Condensed 600, 0.75rem on a 1rem line, 0.09em, uppercase): section heads, rail field names, schedule column heads, footer, decision-note terms, previous/next markers, stack lines.
 - **Mono** (0.875rem, tabular figures): dates, years, sheet numbers, reading time, code.
 
 ### Named Rules
@@ -206,21 +208,25 @@ The `lamp-*` tokens are the same roles under a desk lamp, applied only when `dat
 
 ## Layout
 
-The spatial unit is **u = 1.5rem**. The page background is a four-layer 1px grid: minor lines every u, major lines every 5u (7.5rem). The minor grid is positioned at `calc(50% + 0.75rem)` and the major at `calc(50% + 3.75rem)`, which puts a minor and a major line on the viewport centre and minor lines exactly on the 42rem column edges (centre ± 21rem). Registration holds whenever the viewport is wider than the full column box (45rem).
+The spatial unit is **u = 1.5rem**. The page background is a four-layer 1px grid: minor lines every u, major lines every 5u (7.5rem). The minor grid is positioned at `calc(50% + 0.75rem)` and the major at `calc(50% + 3.75rem)`, which puts a minor and a major line on the viewport centre.
 
-The column is 42rem of content plus 1u of padding each side, centred, with 2u (3rem) top and 5u bottom. Vertical rhythm between blocks is counted in units: intro and sections start 3u below what precedes them (2u and 2.5u on phones), post prose starts 2u below the head, prose h2 sits 2.5u down. Inside lists, entries use 1rem padding and 0.25rem row gaps.
+The sheet is 58u (87rem) of content plus 1u of padding each side, centred, with 2u top and 5u bottom. Inside it sit a 13u (19.5rem) title-block rail, a 3u gap and a 42u body. Every one of those widths is whole u and the sheet is centred on a grid line, so the sheet edges, the rail's right edge and the body's left edge all land on minor grid lines. Registration holds whenever the viewport is at least 90rem wide; below that the sheet goes fluid.
 
-List entries are a two-column grid: title on the left, mono meta (date or year) right-aligned on the same baseline row, and everything else spanning full width beneath.
+Inside the body, posts and project sheets keep the 42rem reading measure; lists and the schedule use the full body width, with descriptions capped at 36em. Every sheet starts level with the top of the rail. Vertical rhythm between blocks is counted in units: sections start 3u below what precedes them (2.5u on phones), post prose starts 2u below the head, prose h2 sits 2.5u down. Inside lists, entries use 1rem padding and 0.25rem row gaps.
+
+List entries are a two-column grid: title on the left, mono meta (date, year or figure) right-aligned on the same baseline row, and everything else spanning full width beneath. On the index sheet, Experience and Recognition sit side by side as a pair, 2u apart.
 
 Breakpoints:
-- **≥ 52rem:** sheet numbers hang in the left margin, 4.75rem out from the column edge, right-aligned in a 3.5rem box.
-- **< 52rem:** sheet numbers sit inline before the title as smaller mono prefixes (0.8125rem).
-- **< 40rem:** column padding drops to 1.25rem; the header strip becomes a full-width name cell over three equal nav cells; decision notes stack; code blocks bleed to the screen edges.
+- **≥ 80rem:** the schedule shows its Stack column, and the index sheet's pair sits side by side.
+- **60–80rem:** the Stack column drops out and the pair stacks.
+- **≥ 60rem:** the rail is sticky 2u from the top (it scrolls inside itself if the window is shorter than it), and sheet numbers hang in the gap between rail and body, 4.75rem out from the body edge, right-aligned in a 3.5rem box (inline inside the pair, which has no margin to hang into).
+- **< 60rem:** the sheet becomes one 42rem column with 1.25rem padding; the rail sits on top and stops following the page; its index and theme cells become one strip of label-over-value cells; sheet numbers sit inline before titles at 0.8125rem; schedule rows become blocks (number, stamp and year on one row, then the project, then the stack).
+- **< 40rem:** titles drop to 1.75rem; decision notes stack; code blocks and figures bleed to the screen edges.
 
-Print removes the grid background, the header strip, the footer and the skip link, leaving the column.
+Print removes the grid background, the rail, the footer and the skip link, leaving the body.
 
 ### Named Rules
-**The Registered Grid Rule.** The grid is not wallpaper: its minor lines meet the column edges. Any change to column width or grid offset must keep the column edges on grid lines.
+**The Registered Grid Rule.** The grid is not wallpaper: its minor lines meet the sheet, rail and body edges. Any change to a width, gap or grid offset must keep those edges on grid lines at full width.
 
 ## Elevation & Depth
 
@@ -231,7 +237,7 @@ The system is completely flat. There are no shadows anywhere. Depth is conveyed 
 
 ## Shapes
 
-Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule slate blue. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon and Apple touch icon are the owner's avatar, resized from the same image used in the intro and the header's Name cell.
+Every corner is square (0 radius). Lines are 1px, solid for structure and dashed for anything provisional (placeholder entries and empty states). List markers are squares in strong-rule slate blue. The one icon, a drawn arrow, uses square line caps at 1.6 stroke and rotates for direction (up-right for outbound links, rotated -135deg for the back link). The favicon and Apple touch icon are the owner's avatar, resized from the same image that heads the title-block rail.
 
 ## Components
 
@@ -243,31 +249,34 @@ Thin, quiet, always identifiable.
 - **Outbound with arrow:** inline-flex with a 0.3em gap before the drawn arrow.
 - **Pending:** a link not yet available renders as faint-graphite text ending in "· soon", not as a disabled link.
 
-### Navigation: Title-Block Strip
-The header is one ruled strip, like the title block on a drawing sheet.
-- **Structure:** a 1px strong-rule outline; cells divided by hairline rules; first cell takes the remaining width, nav cells size to content.
-- **Cell:** a label (field name or two-digit sheet number) stacked over a value; minimum height 2u (3rem); 0.25rem by 1rem padding. The first cell's value is bold.
-- **Hover:** deep stock background (160ms).
-- **Current page:** blue-wash background and blue label (not applied to the name cell).
-- **Focus:** the outline is pulled inside the cell (-3px offset).
-- **Phones:** the name cell spans the full width above three equal nav cells.
+### Title-Block Rail
+The title block of the drawing, set down the left side of every sheet in place of a top header.
+- **Structure:** a 1px strong-rule outline on stock, in four fields divided by hairline rules: who (avatar and name, then the statement in soft graphite at 0.9375rem), facts (a label/value list: Role, At, Write, Code, Profile), the sheet index, and the theme cell.
+- **Name:** bold 1.5rem. On the index sheet it is the page's h1; on every other sheet it is a plain line linking home, and the sheet's own title is the h1.
+- **Index cells:** one row each, a two-digit sheet-number label in a 2u column beside the sheet name, minimum height 2u. Index itself is listed as sheet 01.
+- **Theme cell:** the last row, label left and value right.
+- **Hover:** deep stock background (160ms). **Current page:** blue-wash background and blue label. **Focus:** the outline is pulled inside the cell (-3px offset).
+- **Phones:** the rail sits on top. Inner sheets keep only avatar and name; the index sheet also keeps the statement and the contact links (Role and At drop, since the statement says them). Index and theme cells become one strip of equal cells, label over value.
 
-### Intro Avatar
-The home intro carries one square image on the right: the owner's avatar, framed like a print clipped to the pad, with 0.25rem of paper inside a 1px strong rule and square corners. It spans the intro's rows at 6u wide on desktop and sits beside the title at 3u on phones. The same image also appears at 1.75rem inside the header strip's Name cell on every page, framed by a 1px hairline and marked decorative because the name sits beside it. It is the only raster on the site; nothing else gets an image, a frame or a shadow. Project figures are line drawings, not images (see Project Figure).
+### Avatar
+The owner's avatar heads the rail on every sheet, framed like a print clipped to the pad: 3u square with 0.1875rem of paper inside a 1px strong rule and square corners (3rem on phones). It is marked decorative because the name sits beside it. It is the only raster on the site; nothing else gets an image, a frame or a shadow. Project figures are line drawings, not images (see Project Figure).
 
 ### Section Head
 A label over a strong rule: Barlow label on the left, an optional "all" link (0.9375rem) aligned on the right baseline, 0.625rem gap to the rule.
 
-### List Entry (signature)
-The repeated unit for posts, projects and experience entries.
+### Project Schedule (signature)
+Projects are listed as a ruled table, like the schedule on a drawing: columns No., Project, Status, Stack and Year under label-face column heads and a hairline. Each row holds the sheet number in faint mono; the project name in bold blue linking to its sheet, with its description beneath (the tagline on the index sheet; the summary, source links and any decision note on the Projects sheet); the status stamp; the stack as a label line; and the year in mono, right-aligned. Rows are divided by hairlines and take a faint deep-stock wash on hover. On the Projects sheet each row is an anchor target.
+
+### List Entry
+The repeated unit for posts, experience and recognition entries.
 - **Shape:** no box; a hairline rule below each entry, 1rem vertical padding.
 - **Content:** bold title (with link in blue when it leads somewhere), mono meta at top right, soft-graphite description below.
-- **Sheet number:** a mono number in the form page.index hangs in the left margin (see Layout).
-- **Variants:** post entry (title, date, summary); project entry (adds a status stamp after the title, a stack label line and outbound arrow links, and optionally a decision note); experience/education entry (organisation with date range; role or degree with place in faint graphite, set as one full-width row; then an optional summary sentence on the Experience page, or a one-line tagline in compact lists).
+- **Sheet number:** a mono number in the form page.index hangs in the gap beside the rail (see Layout).
+- **Variants:** post entry (title, date, summary); recognition entry (title, with a year or figure as the meta only when the fact states one, then one line of detail); experience/education entry (organisation with date range; role or degree with place in faint graphite, set as one full-width row; then an optional summary sentence on the Experience page, or a one-line tagline in compact lists).
 - **Placeholder:** dashed bottom rule and faint graphite text, so unconfirmed content is visibly provisional.
 
 ### Status Stamp
-Project entries carry a stamp after the title, like the issue status on a drawing: a Barlow label inside a 1px rule with 0 0.375rem padding and square corners. There are four states and none of them is negative: **In progress** (commits still landing) has a dashed strong rule and soft-graphite text, following the dashed-means-provisional rule; **Released** (published for others to install) has a solid strong rule and soft-graphite text; **Complete** and **Study** (built to learn) have a hairline rule and faint-graphite text. Stamps never take blue. Statuses come from the repository history, never from guesswork.
+Project schedule rows carry a stamp in their Status column (and project sheets in their meta row), like the issue status on a drawing: a Barlow label inside a 1px rule with 0 0.375rem padding and square corners. There are four states and none of them is negative: **In progress** (commits still landing) has a dashed strong rule and soft-graphite text, following the dashed-means-provisional rule; **Released** (published for others to install) has a solid strong rule and soft-graphite text; **Complete** and **Study** (built to learn) have a hairline rule and faint-graphite text. Stamps never take blue. Statuses come from the repository history, never from guesswork.
 
 ### Project Sheet
 Each project has its own sheet at `/projects/<slug>`, reached from the project's title in any list. It follows the post layout: back link, title, a meta row (status stamp, year, sheet number), the tagline as lede, the project figure, the summary in prose, then a Specification section (a grouped term list of status with its meaning, stack and source links, plus the decision note when there is one) and a Previous/Next turn through the projects.
@@ -275,7 +284,7 @@ Each project has its own sheet at `/projects/<slug>`, reached from the project's
 ### Project Figure
 The one visual on a project sheet: a schematic of how the project works, drawn as inline SVG in the pad's own inks, like a figure on a computation sheet.
 - **Grid:** drawn in units of u and exactly 28u (the 42rem column) wide, so its verticals land on the paper's minor grid lines. Lines are offset half a pixel and use non-scaling strokes, so every line stays 1px.
-- **Marks:** boxes in strong rule with no fill; wires and open chevron arrowheads in faint graphite; deep stock is the only fill (tokens, header cells, a chosen value). Dashed boxes are designed but not built, and a cross marks something the design refuses.
+- **Marks:** boxes in strong rule with no fill; wires and open chevron arrowheads in faint graphite; deep stock is the only fill (tokens, table header cells, a chosen value). Dashed boxes are designed but not built, and a cross marks something the design refuses.
 - **Type:** box titles in the body face at 700, sublabels and annotations in the label face, numbers in the mono.
 - **Caption:** a hairline rule, then "Fig. NN.N" as a label beside a soft-graphite sentence; it stacks on phones.
 - **Phones:** the drawing keeps a 34rem minimum width and scrolls sideways, bled to the screen edges like code blocks.
@@ -300,8 +309,8 @@ A hairline rule, then two labels: the name on the left, "Sheet NN of NN" on the 
 
 ### Do:
 - **Do** measure vertical spacing in units of 1.5rem (u, 2u, 3u, 5u).
-- **Do** keep the minor grid registered to the column edges when changing column width or grid offset.
-- **Do** separate content with 1px rules: hairline between entries, strong under section heads and around the strip.
+- **Do** keep the minor grid registered to the sheet, rail and body edges when changing any width, gap or grid offset.
+- **Do** separate content with 1px rules: hairline between entries, strong under section heads and around the rail.
 - **Do** set every date, count and sheet number in the mono with tabular figures.
 - **Do** mark unconfirmed content with dashed rules and faint graphite rather than hiding it.
 - **Do** give every new colour role a lamp counterpart in both dark-theme blocks.
@@ -309,7 +318,7 @@ A hairline rule, then two labels: the name on the left, "Sheet NN of NN" on the 
 
 ### Don't:
 - **Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop 1px grid lines.
-- **Don't** box list entries into cards or filled panels; filled backgrounds are limited to the header strip's states and code.
+- **Don't** box list entries into cards or filled panels; filled backgrounds are limited to the rail's cell states, schedule row hover and code.
 - **Don't** introduce a display typeface or type larger than 2rem.
 - **Don't** use blue-black for anything that is not interactive or the current location.
 - **Don't** add entrance, scroll or hover motion beyond colour and underline transitions.

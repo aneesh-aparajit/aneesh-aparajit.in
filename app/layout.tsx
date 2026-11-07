@@ -55,10 +55,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="skip" href="#main">
           Skip to content
         </a>
-        <div className="col">
+        <div className="sheet">
           <TitleBlock />
-          <main id="main">{children}</main>
-          <Footer />
+          <div className="sheet-body">
+            <main id="main">{children}</main>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
