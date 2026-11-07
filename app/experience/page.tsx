@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Links } from "@/components/links";
-import { SectionHead, CvList } from "@/components/lists";
+import { SectionHead, CvList, AchievementList } from "@/components/lists";
 import { site, sheetNo } from "@/lib/site";
 import { experience, education, skills, achievements } from "@/lib/resume";
 
@@ -44,11 +44,7 @@ export default function Experience() {
 
       <section className="section" aria-label="Achievements">
         <SectionHead title="Achievements" />
-        <ul className="plain-list">
-          {achievements.map((a) => (
-            <li key={a}>{a}</li>
-          ))}
-        </ul>
+        <AchievementList items={achievements} />
       </section>
     </>
   );

@@ -4,7 +4,7 @@ import type { Post } from "@/lib/posts";
 import { formatDate } from "@/lib/posts";
 import type { Project } from "@/lib/projects";
 import { statusLabel } from "@/lib/projects";
-import type { CvItem } from "@/lib/resume";
+import type { Achievement, CvItem } from "@/lib/resume";
 import { sheetNo } from "@/lib/site";
 
 export function SectionHead({
@@ -73,47 +73,85 @@ export function PostList({
   );
 }
 
-export function ProjectList({
+// The project schedule: one ruled table row per project, like the schedule on a
+// drawing. compact: the tagline only, for the home page; otherwise the summary,
+// source links and any decision note, and each row is an anchor target.
+export function ProjectSchedule({
   projects,
-  notes = false,
   compact = false,
 }: {
   projects: Project[];
-  notes?: boolean;
   compact?: boolean;
 }) {
   return (
+    <table className="schedule">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Project</th>
+          <th scope="col">Status</th>
+          <th scope="col" className="sch-stack">
+            Stack
+          </th>
+          <th scope="col" className="sch-year">
+            Year
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {projects.map((p, i) => (
+          <tr key={p.slug} id={compact ? undefined : p.slug}>
+            <td className="sch-n mono">{`${sheetNo("/projects")}.${i + 1}`}</td>
+            <td className="sch-name">
+              <Link href={`/projects/${p.slug}`}>{p.name}</Link>
+              <p className="sch-desc">{compact ? p.tagline : p.summary}</p>
+              {!compact && (p.repo || p.live) && (
+                <p className="sch-links">
+                  {p.repo && (
+                    <a href={p.repo} target="_blank" rel="noreferrer">
+                      Repository <Arrow />
+                    </a>
+                  )}
+                  {p.live && (
+                    <a href={p.live} target="_blank" rel="noreferrer">
+                      Live <Arrow />
+                    </a>
+                  )}
+                </p>
+              )}
+              {!compact && p.decision && (
+                <dl className="note">
+                  <dt className="label">Decision</dt>
+                  <dd>{p.decision.choice}</dd>
+                  <dt className="label">Trade-off</dt>
+                  <dd>{p.decision.tradeoff}</dd>
+                </dl>
+              )}
+            </td>
+            <td className="sch-status">
+              <span className={`stamp label stamp-${p.status}`}>{statusLabel[p.status]}</span>
+            </td>
+            <td className="sch-stack label">{p.stack.join(" · ")}</td>
+            <td className="sch-year mono">{p.year}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+// Awards and other recognition: a title with its year or figure, then one line of detail.
+export function AchievementList({ items, prefix }: { items: Achievement[]; prefix?: string }) {
+  return (
     <ol>
-      {projects.map((p, i) => (
-        <li key={p.slug} id={compact ? undefined : p.slug} className="item">
+      {items.map((a, i) => (
+        <li key={a.title} className="item">
           <h3 className="item-title">
-            <SheetNo n={`${sheetNo("/projects")}.${i + 1}`} />
-            <Link href={`/projects/${p.slug}`}>{p.name}</Link>
-            <span className={`stamp label stamp-${p.status}`}>{statusLabel[p.status]}</span>
+            {prefix && <SheetNo n={`${prefix}.${i + 1}`} />}
+            {a.title}
           </h3>
-          {p.year && <span className="item-meta mono">{p.year}</span>}
-          <p className="item-body">{compact ? p.tagline : p.summary}</p>
-          <div className="item-stack">
-            <span className="label">{p.stack.join(" · ")}</span>
-            {p.repo && (
-              <a href={p.repo} target="_blank" rel="noreferrer">
-                Repository <Arrow />
-              </a>
-            )}
-            {p.live && (
-              <a href={p.live} target="_blank" rel="noreferrer">
-                Live <Arrow />
-              </a>
-            )}
-          </div>
-          {notes && p.decision && (
-            <dl className="note">
-              <dt className="label">Decision</dt>
-              <dd>{p.decision.choice}</dd>
-              <dt className="label">Trade-off</dt>
-              <dd>{p.decision.tradeoff}</dd>
-            </dl>
-          )}
+          {a.mark && <span className="item-meta mono">{a.mark}</span>}
+          <p className="item-body">{a.detail}</p>
         </li>
       ))}
     </ol>

@@ -163,90 +163,141 @@ a:hover {
   stroke-linecap: square;
 }
 
-/* ---------- the column ---------- */
+/* ---------- the sheet: title-block rail and body ---------- */
 
-.col {
-  max-width: calc(var(--col) + var(--u) * 2);
+/* 58u of content: a 13u rail, a 3u gap and a 42u body. At 90rem and wider the
+   sheet is centred, so its edges, the rail edge and the body edge all land on
+   minor grid lines (the centre is a grid line, and every width is whole u). */
+.sheet {
+  display: grid;
+  grid-template-columns: calc(var(--u) * 13) minmax(0, 1fr);
+  column-gap: calc(var(--u) * 3);
+  max-width: calc(var(--u) * 60);
   margin: 0 auto;
-  padding: calc(var(--u) * 3) var(--u) calc(var(--u) * 5);
+  padding: calc(var(--u) * 2) var(--u) calc(var(--u) * 5);
+}
+.sheet-body {
+  min-width: 0;
 }
 
-/* ---------- header: one ruled title-block strip ---------- */
+/* ---------- the title-block rail ---------- */
 
-/* Cells: the name, each section link (inside .strip-nav) and the theme button. */
-.strip {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-flow: column;
-  grid-auto-columns: auto;
+.rail {
+  position: sticky;
+  top: calc(var(--u) * 2);
+  align-self: start;
+  max-height: calc(100dvh - var(--u) * 4);
+  overflow-y: auto;
   border: 1px solid var(--rule-strong);
   background: var(--stock);
 }
-/* On wide screens the nav is invisible to layout; its links are strip cells. */
-.strip-nav {
-  display: contents;
+.rail > * {
+  border-top: 1px solid var(--rule);
 }
-.strip > a,
-.strip > button,
-.strip-nav > a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.125rem;
-  min-height: calc(var(--u) * 2);
-  padding: 0.25rem 1rem;
-  border-left: 1px solid var(--rule);
-  color: var(--ink);
-  text-decoration: none;
-  line-height: 1.25;
-  transition: background-color 160ms var(--ease-out);
-}
-/* Name cell: a small avatar beside the name, on every page. */
-.strip > .strip-name {
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.625rem;
-  border-left: 0;
-  font-weight: 700;
-}
-.strip-name-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-  min-width: 0;
-}
-.strip-avatar {
-  flex: none;
-  width: 1.75rem;
-  height: 1.75rem;
-  border: 1px solid var(--rule);
+.rail > :first-child {
+  border-top: 0;
 }
 
-.strip a:hover,
-.strip button:hover {
-  background: var(--stock-deep);
+.rail-who {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
 }
-/* The theme cell is a button set as a strip cell. */
-.strip button {
+.rail-id {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.rail-avatar {
+  flex: none;
+  width: calc(var(--u) * 3);
+  height: auto;
+  aspect-ratio: 1;
+  padding: 0.1875rem;
+  border: 1px solid var(--rule-strong);
+  background: var(--stock);
+}
+.rail-name {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.rail-name a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.rail-name a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+}
+.rail-lede {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.rail-facts {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.25rem 0.75rem;
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+}
+.rail-facts > div {
+  display: contents;
+}
+.rail-facts dt {
+  padding-top: 0.15rem;
+}
+.rail-facts .soon {
+  color: var(--ink-faint);
+}
+
+/* Index cells and the theme cell: one ruled row each. */
+.rail-nav {
+  display: grid;
+}
+.rail-nav a,
+.rail-cells > button {
+  display: grid;
+  grid-template-columns: calc(var(--u) * 2) minmax(0, 1fr);
+  align-items: center;
+  min-height: calc(var(--u) * 2);
+  padding: 0 1.25rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out);
+}
+.rail-nav a:first-child {
+  border-top: 0;
+}
+.rail-cells > button {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) auto;
   font: inherit;
   text-align: left;
   background: transparent;
-  border-top: 0;
   border-right: 0;
   border-bottom: 0;
+  border-left: 0;
   cursor: pointer;
 }
-.strip button:focus-visible {
-  outline-offset: -3px;
+.rail-nav a:hover,
+.rail-cells > button:hover {
+  background: var(--stock-deep);
 }
-.strip-nav a[aria-current="page"] {
+.rail-nav a[aria-current="page"] {
   background: var(--blue-wash);
 }
-.strip-nav a[aria-current="page"] .label {
+.rail-nav a[aria-current="page"] .label {
   color: var(--blue);
 }
-.strip a:focus-visible {
+.rail-nav a:focus-visible,
+.rail-cells > button:focus-visible {
   outline-offset: -3px;
 }
 
@@ -254,6 +305,11 @@ a:hover {
 
 .intro {
   margin-top: calc(var(--u) * 3);
+}
+/* Every sheet starts level with the top of the rail. */
+main > :first-child,
+main > article > :first-child {
+  margin-top: 0;
 }
 .title {
   font-size: 2rem;
@@ -267,37 +323,6 @@ a:hover {
   max-width: 34em;
   color: var(--ink-soft);
   text-wrap: pretty;
-}
-
-/* Home intro: text on the left, the avatar on the right. */
-.intro-with-photo {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "title photo"
-    "lede photo"
-    "links photo";
-  column-gap: calc(var(--u) * 2);
-  align-items: start;
-}
-.intro-with-photo .title {
-  grid-area: title;
-}
-.intro-with-photo .lede {
-  grid-area: lede;
-}
-.intro-with-photo .links {
-  grid-area: links;
-}
-.avatar {
-  grid-area: photo;
-  display: block;
-  width: calc(var(--u) * 6);
-  height: auto;
-  aspect-ratio: 1;
-  padding: 0.25rem;
-  border: 1px solid var(--rule-strong);
-  background: var(--stock);
 }
 
 .links {
@@ -320,6 +345,10 @@ a:hover {
 .section {
   margin-top: calc(var(--u) * 3);
 }
+/* The index sheet opens straight onto its first section. */
+.section-first {
+  margin-top: 0;
+}
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -329,6 +358,97 @@ a:hover {
 }
 .section-head a {
   font-size: 0.9375rem;
+}
+
+/* Two sections side by side on the index sheet. */
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: calc(var(--u) * 2);
+}
+/* Sheet numbers can't hang into the gap between the pair, so they sit inline. */
+.pair .item-n {
+  position: static;
+  display: inline-block;
+  width: auto;
+  margin-right: 0.625rem;
+  font-size: 0.8125rem;
+}
+
+/* The project schedule: a ruled table, like the schedule on a drawing. */
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+}
+.schedule th {
+  padding: 0.625rem 1rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.schedule td {
+  padding: 1rem 1rem 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.schedule tr {
+  scroll-margin-top: var(--u);
+}
+.schedule tr:target .sch-name > a {
+  text-decoration-color: currentColor;
+}
+.schedule .sch-n {
+  width: 3.5rem;
+  padding-top: 1.1rem;
+  white-space: nowrap;
+  color: var(--ink-faint);
+}
+.sch-name > a {
+  font-weight: 700;
+}
+.sch-desc {
+  margin-top: 0.25rem;
+  max-width: 36em;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.sch-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-top: 0.375rem;
+  font-size: 0.9375rem;
+}
+.sch-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.schedule .sch-status {
+  white-space: nowrap;
+  padding-top: 1.1rem;
+}
+.sch-status .stamp {
+  margin-left: 0;
+}
+.schedule td.sch-stack {
+  width: 12rem;
+  padding-top: 1.15rem;
+}
+.schedule .sch-year {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+.schedule td.sch-year {
+  padding-top: 1.1rem;
 }
 
 .item {
@@ -435,13 +555,6 @@ a:hover {
 }
 .skills dd {
   color: var(--ink-soft);
-}
-
-.plain-list li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--rule);
-  color: var(--ink-soft);
-  max-width: none;
 }
 
 /* Decision note on the work page: one choice and its cost. */
@@ -713,9 +826,92 @@ a:hover {
   border-top: 1px solid var(--rule);
 }
 
-/* ---------- small screens ---------- */
+/* Posts and project sheets keep the 42rem reading measure inside the body. */
+.sheet-body article {
+  max-width: var(--col);
+}
 
-@media (max-width: 52rem) {
+/* ---------- smaller screens ---------- */
+
+@media (max-width: 80rem) {
+  .schedule .sch-stack {
+    display: none;
+  }
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Below 60rem the rail moves on top of the sheet and stops following the page. */
+@media (max-width: 60rem) {
+  .sheet {
+    display: block;
+    max-width: calc(var(--col) + var(--u) * 2);
+    padding: calc(var(--u) * 1.5) 1.25rem calc(var(--u) * 3);
+  }
+  .rail {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: calc(var(--u) * 2);
+  }
+  .rail-who {
+    padding: 0.75rem 1rem;
+  }
+  .rail-avatar {
+    width: 3rem;
+  }
+  .rail-name {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  /* Only the index page keeps the intro; role and place are in it already. */
+  .rail:not(.rail-home) .rail-lede,
+  .rail:not(.rail-home) .rail-facts,
+  .rail-fact-role {
+    display: none;
+  }
+  .rail-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.375rem;
+    padding: 0.75rem 1rem;
+  }
+  .rail-facts dt {
+    display: none;
+  }
+  /* The index and theme cells become one strip: label over value. */
+  .rail-cells {
+    display: flex;
+  }
+  .rail-nav {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .rail-nav a,
+  .rail-cells > button {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.125rem;
+    padding: 0.25rem 0.625rem;
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+    font-size: 0.9375rem;
+    line-height: 1.25;
+  }
+  .rail-nav a:first-child {
+    border-left: 0;
+  }
+  .rail-cells > button {
+    flex: none;
+    width: auto;
+  }
+
   .item-n {
     position: static;
     display: inline-block;
@@ -723,60 +919,59 @@ a:hover {
     margin-right: 0.625rem;
     font-size: 0.8125rem;
   }
+
+  /* Schedule rows become blocks: number, stamp and year, then the project. */
+  .schedule thead {
+    display: none;
+  }
+  .schedule tr {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.375rem 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .schedule td {
+    padding: 0 !important;
+    border: 0;
+  }
+  .schedule .sch-n {
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    font-size: 0.8125rem;
+  }
+  .schedule .sch-status {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .schedule .sch-year {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .schedule .sch-name {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .schedule td.sch-stack {
+    display: block;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: auto;
+  }
 }
 
 @media (max-width: 40rem) {
-  .col {
-    padding: calc(var(--u) * 1.5) 1.25rem calc(var(--u) * 3);
-  }
-  /* Phones: name and theme share the top row; sections get a full row below. */
-  .strip {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "name theme"
-      "nav nav";
-  }
-  .strip > .strip-name {
-    grid-area: name;
-    border-bottom: 1px solid var(--rule);
-  }
-  .strip > button {
-    grid-area: theme;
-    border-bottom: 1px solid var(--rule);
-  }
-  .strip-nav {
-    grid-area: nav;
-    display: flex;
-  }
-  .strip-nav > a {
-    flex: 1 1 0;
-    min-width: 0;
-  }
-  .strip-nav > a:first-child {
-    border-left: 0;
-  }
-  .intro,
-  .post-head {
-    margin-top: calc(var(--u) * 2);
-  }
   .title {
     font-size: 1.75rem;
     line-height: 2.25rem;
   }
-  .intro-with-photo {
-    grid-template-areas:
-      "title photo"
-      "lede lede"
-      "links links";
-    column-gap: var(--u);
-    align-items: center;
-  }
-  .avatar {
-    width: calc(var(--u) * 3);
-  }
   .section {
     margin-top: calc(var(--u) * 2.5);
+  }
+  .section-first {
+    margin-top: 0;
   }
   .note {
     grid-template-columns: minmax(0, 1fr);
@@ -805,7 +1000,10 @@ a:hover {
   body {
     background: none;
   }
-  .strip,
+  .sheet {
+    display: block;
+  }
+  .rail,
   .foot,
   .skip {
     display: none;

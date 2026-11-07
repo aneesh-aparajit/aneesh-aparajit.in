@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SectionHead, ProjectList } from "@/components/lists";
+import { SectionHead, ProjectSchedule } from "@/components/lists";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -18,8 +18,8 @@ export default function Projects() {
       </section>
 
       <section className="section" aria-label="Projects">
-        <SectionHead title="Side projects" />
-        <ProjectList projects={projects} notes />
+        <SectionHead title="Project schedule" />
+        <ProjectSchedule projects={projects} />
       </section>
     </>
   );
