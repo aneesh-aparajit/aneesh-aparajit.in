@@ -28,6 +28,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "libra",
+    name: "libra",
+    tagline: "A multi-tenant policy engine in Java: send an entity and an input, get allow or deny from policies written as plain JavaScript. Being built in the open.",
+    summary:
+      "A multi-tenant policy evaluation engine on Spring Boot. Policies are pairs of JavaScript functions, one deciding whether a policy applies and one deciding allow or deny, targeted at a whole scope or a single entity and run in parallel on GraalJS; any deny or error denies. Laid down so far: the Postgres schema and DAOs, the JS engine, and an HTTP API for tenants, scopes and versioned policies with optimistic locking and RFC 9457 errors. The evaluation endpoint comes next.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "GraalJS"],
+    status: "in-progress",
+    year: "Nov 2026",
+    repo: "https://github.com/aneesh-aparajit/libra",
+  },
+  {
     slug: "ostinato",
     name: "ostinato",
     tagline: "A lightweight job scheduler in Go and Postgres, with cron schedules, one-off tasks and guards against double fires. Being built in the open.",
