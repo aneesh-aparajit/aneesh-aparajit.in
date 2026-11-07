@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   const n = `${sheetNo("/projects")}.${i + 1}`;
 
   return (
-    <article>
+    <article className="project-sheet">
       <header className="post-head">
         <Link href="/projects" className="backlink">
           <Arrow /> Projects
@@ -51,7 +51,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <p>{p.summary}</p>
       </div>
 
-      <section className="section" aria-label="Specification">
+      <section className="section project-spec" aria-label="Specification">
         <SectionHead title="Specification" />
         <dl className="skills">
           <dt className="label">Status</dt>

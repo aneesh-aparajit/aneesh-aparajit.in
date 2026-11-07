@@ -212,12 +212,13 @@ The spatial unit is **u = 1.5rem**. The page background is a four-layer 1px grid
 
 The sheet is 58u (87rem) of content plus 1u of padding each side, centred, with 2u top and 5u bottom. Inside it sit a 13u (19.5rem) title-block rail, a 3u gap and a 42u body. Every one of those widths is whole u and the sheet is centred on a grid line, so the sheet edges, the rail's right edge and the body's left edge all land on minor grid lines. Registration holds whenever the viewport is at least 90rem wide; below that the sheet goes fluid.
 
-Inside the body, posts and project sheets keep the 42rem reading measure; lists and the schedule use the full body width, with descriptions capped at 36em. Every sheet starts level with the top of the rail. Vertical rhythm between blocks is counted in units: sections start 3u below what precedes them (2.5u on phones), post prose starts 2u below the head, prose h2 sits 2.5u down. Inside lists, entries use 1rem padding and 0.25rem row gaps.
+Inside the body, posts keep the 42rem reading measure, and project sheets keep it below 80rem (see Project Sheet for the wide layout); lists and the schedule use the full body width, with descriptions capped at 36em. Every sheet starts level with the top of the rail. Vertical rhythm between blocks is counted in units: sections start 3u below what precedes them (2.5u on phones), post prose starts 2u below the head, prose h2 sits 2.5u down. Inside lists, entries use 1rem padding and 0.25rem row gaps.
 
 List entries are a two-column grid: title on the left, mono meta (date, year or figure) right-aligned on the same baseline row, and everything else spanning full width beneath. On the index sheet, Experience and Recognition sit side by side as a pair, 2u apart.
 
 Breakpoints:
 - **≥ 80rem:** the schedule shows its Stack column, and the index sheet's pair sits side by side.
+- **≥ 80rem:** project sheets set the specification beside the figure (see Project Sheet).
 - **60–80rem:** the Stack column drops out and the pair stacks.
 - **≥ 60rem:** the rail is sticky 2u from the top (it scrolls inside itself if the window is shorter than it), and sheet numbers hang in the gap between rail and body, 4.75rem out from the body edge, right-aligned in a 3.5rem box (inline inside the pair, which has no margin to hang into).
 - **< 60rem:** the sheet becomes one 42rem column with 1.25rem padding; the rail sits on top and stops following the page; its index and theme cells become one strip of label-over-value cells; sheet numbers sit inline before titles at 0.8125rem; schedule rows become blocks (number, stamp and year on one row, then the project, then the stack).
@@ -279,7 +280,9 @@ The repeated unit for posts, experience and recognition entries.
 Project schedule rows carry a stamp in their Status column (and project sheets in their meta row), like the issue status on a drawing: a Barlow label inside a 1px rule with 0 0.375rem padding and square corners. There are four states and none of them is negative: **In progress** (commits still landing) has a dashed strong rule and soft-graphite text, following the dashed-means-provisional rule; **Released** (published for others to install) has a solid strong rule and soft-graphite text; **Complete** and **Study** (built to learn) have a hairline rule and faint-graphite text. Stamps never take blue. Statuses come from the repository history, never from guesswork.
 
 ### Project Sheet
-Each project has its own sheet at `/projects/<slug>`, reached from the project's title in any list. It follows the post layout: back link, title, a meta row (status stamp, year, sheet number), the tagline as lede, the project figure, the summary in prose, then a Specification section (a grouped term list of status with its meaning, stack and source links, plus the decision note when there is one) and a Previous/Next turn through the projects.
+Each project has its own sheet at `/projects/<slug>`, reached from the project's name in the schedule. Top to bottom: back link, title, a meta row (status stamp, year, sheet number), the tagline as lede, the project figure, the summary in prose, a Specification section (a grouped term list of status with its meaning, stack and source links, plus the decision note when there is one), then a Previous/Next turn through the projects.
+
+At 80rem and wider the sheet uses the whole body, like a drawing with a notes column: the head spans the width; the figure and summary keep a 28u column, so the figure stays on the grid; the Specification stands in the remaining column (12u at full width, never under 15rem), 2u away, level with the top of the figure and sticky 2u from the top, with each term set over its value; the turn spans the width at the foot. Below 80rem it is one 42rem column in the order above.
 
 ### Project Figure
 The one visual on a project sheet: a schematic of how the project works, drawn as inline SVG in the pad's own inks, like a figure on a computation sheet.

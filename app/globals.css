@@ -831,6 +831,54 @@ main > article > :first-child {
   max-width: var(--col);
 }
 
+/* Project sheets on a wide body: the figure and summary keep their 28u column,
+   and the specification stands beside them like the notes column on a drawing
+   (28u + 2u + 12u fills the 42u body exactly). */
+@media (min-width: 80rem) {
+  .sheet-body article.project-sheet {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(0, calc(var(--u) * 28)) minmax(15rem, 1fr);
+    grid-template-areas:
+      "head head"
+      "fig spec"
+      "prose spec"
+      "turn turn";
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: calc(var(--u) * 2);
+  }
+  .project-sheet > .post-head {
+    grid-area: head;
+  }
+  .project-sheet > .figure {
+    grid-area: fig;
+  }
+  .project-sheet > .project-prose {
+    grid-area: prose;
+  }
+  .project-sheet > .project-spec {
+    grid-area: spec;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--u) * 2);
+    margin-top: calc(var(--u) * 2);
+  }
+  /* A narrow column: each term sits over its value. */
+  .project-spec .skills {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.125rem;
+  }
+  .project-spec .skills dd + dt {
+    margin-top: 0.625rem;
+  }
+  .project-spec .note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-sheet > .turn {
+    grid-area: turn;
+  }
+}
+
 /* ---------- smaller screens ---------- */
 
 @media (max-width: 80rem) {
