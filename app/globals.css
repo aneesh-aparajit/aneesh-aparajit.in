@@ -572,6 +572,111 @@ a:hover {
   margin-block: calc(var(--u) * 2);
 }
 
+/* ---------- project sheet ---------- */
+
+.post-meta .stamp {
+  margin-left: 0;
+  vertical-align: baseline;
+}
+.post-head .lede {
+  margin-top: 1rem;
+}
+
+/* A schematic drawn on the pad. 28u wide, so its verticals meet the grid. */
+.figure {
+  margin-top: calc(var(--u) * 2);
+}
+.figure-draw {
+  overflow-x: auto;
+}
+.figure svg {
+  display: block;
+  width: 100%;
+  min-width: 34rem;
+  height: auto;
+  overflow: visible;
+}
+.fig-box {
+  fill: none;
+  stroke: var(--rule-strong);
+  vector-effect: non-scaling-stroke;
+}
+.fig-fill {
+  fill: var(--stock-deep);
+}
+.fig-dash {
+  stroke-dasharray: 4 3;
+}
+.fig-wire,
+.fig-head {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-linecap: square;
+  vector-effect: non-scaling-stroke;
+}
+.fig-faint {
+  stroke: var(--rule);
+}
+.fig-t,
+.fig-b {
+  font-family: var(--font-body);
+  font-size: 14px;
+  fill: var(--ink);
+}
+.fig-t {
+  font-weight: 700;
+}
+.fig-b {
+  font-weight: 700;
+  font-size: 13px;
+}
+.fig-l {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  fill: var(--ink-faint);
+}
+.fig-m {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  fill: var(--ink-soft);
+}
+.fig-m-strong {
+  font-size: 13px;
+  fill: var(--ink);
+}
+.figure figcaption {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.figure figcaption .label {
+  flex: none;
+  padding-top: 0.15rem;
+}
+.project-prose {
+  margin-top: calc(var(--u) * 1.5);
+}
+.spec-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+.spec-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
 .turn {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -682,6 +787,15 @@ a:hover {
   .prose pre {
     margin-inline: -1.25rem;
     border-inline: 0;
+  }
+  /* Figures keep a legible size and scroll sideways, bled to the edges like code. */
+  .figure-draw {
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+  }
+  .figure figcaption {
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }
 

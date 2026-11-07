@@ -253,7 +253,7 @@ The header is one ruled strip, like the title block on a drawing sheet.
 - **Phones:** the name cell spans the full width above three equal nav cells.
 
 ### Intro Avatar
-The home intro carries one square image on the right: the owner's avatar, framed like a print clipped to the pad, with 0.25rem of paper inside a 1px strong rule and square corners. It spans the intro's rows at 6u wide on desktop and sits beside the title at 3u on phones. The same image also appears at 1.75rem inside the header strip's Name cell on every page, framed by a 1px hairline and marked decorative because the name sits beside it. It is the only raster on the site; nothing else gets an image, a frame or a shadow.
+The home intro carries one square image on the right: the owner's avatar, framed like a print clipped to the pad, with 0.25rem of paper inside a 1px strong rule and square corners. It spans the intro's rows at 6u wide on desktop and sits beside the title at 3u on phones. The same image also appears at 1.75rem inside the header strip's Name cell on every page, framed by a 1px hairline and marked decorative because the name sits beside it. It is the only raster on the site; nothing else gets an image, a frame or a shadow. Project figures are line drawings, not images (see Project Figure).
 
 ### Section Head
 A label over a strong rule: Barlow label on the left, an optional "all" link (0.9375rem) aligned on the right baseline, 0.625rem gap to the rule.
@@ -268,6 +268,18 @@ The repeated unit for posts, projects and experience entries.
 
 ### Status Stamp
 Project entries carry a stamp after the title, like the issue status on a drawing: a Barlow label inside a 1px rule with 0 0.375rem padding and square corners. There are four states and none of them is negative: **In progress** (commits still landing) has a dashed strong rule and soft-graphite text, following the dashed-means-provisional rule; **Released** (published for others to install) has a solid strong rule and soft-graphite text; **Complete** and **Study** (built to learn) have a hairline rule and faint-graphite text. Stamps never take blue. Statuses come from the repository history, never from guesswork.
+
+### Project Sheet
+Each project has its own sheet at `/projects/<slug>`, reached from the project's title in any list. It follows the post layout: back link, title, a meta row (status stamp, year, sheet number), the tagline as lede, the project figure, the summary in prose, then a Specification section (a grouped term list of status with its meaning, stack and source links, plus the decision note when there is one) and a Previous/Next turn through the projects.
+
+### Project Figure
+The one visual on a project sheet: a schematic of how the project works, drawn as inline SVG in the pad's own inks, like a figure on a computation sheet.
+- **Grid:** drawn in units of u and exactly 28u (the 42rem column) wide, so its verticals land on the paper's minor grid lines. Lines are offset half a pixel and use non-scaling strokes, so every line stays 1px.
+- **Marks:** boxes in strong rule with no fill; wires and open chevron arrowheads in faint graphite; deep stock is the only fill (tokens, header cells, a chosen value). Dashed boxes are designed but not built, and a cross marks something the design refuses.
+- **Type:** box titles in the body face at 700, sublabels and annotations in the label face, numbers in the mono.
+- **Caption:** a hairline rule, then "Fig. NN.N" as a label beside a soft-graphite sentence; it stacks on phones.
+- **Phones:** the drawing keeps a 34rem minimum width and scrolls sideways, bled to the screen edges like code blocks.
+- **Honesty:** a figure draws only what the project's summary states. No invented numbers, sample data or components.
 
 ### Decision Note
 A two-column definition list hung off a 1px strong left rule: label terms on the left, soft-graphite answers on the right, 0.9375rem at 1.5 line height. Stacks to one column on phones.

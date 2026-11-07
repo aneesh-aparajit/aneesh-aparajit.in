@@ -11,6 +11,14 @@ export const statusLabel: Record<ProjectStatus, string> = {
   study: "Study",
 };
 
+// What each status means, spelled out on a project's own page.
+export const statusNote: Record<ProjectStatus, string> = {
+  "in-progress": "commits still landing",
+  released: "published for others to install",
+  complete: "built to its finish line",
+  study: "built to learn something, and it did",
+};
+
 export type Project = {
   slug: string;
   name: string;
