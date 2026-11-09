@@ -36,15 +36,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "grimoire",
+    name: "grimoire",
+    tagline: "A local-first desktop app for studying what you find online: the article, video or PDF beside your notes and a code sandbox, all as plain files.",
+    summary:
+      "A minimal, local-first desktop app on Tauri for studying blogs, videos and PDFs. A reading list lives in a Markdown INDEX.md; open an item and the content sits on the left, with a Markdown notebook and a code sandbox on the right that runs Python, Rust, Go, Java, C or JavaScript on the toolchains already on your machine. There is no database and no account: the vault is a folder of plain files, preferences included, that you sync with git.",
+    stack: ["Rust", "Tauri", "TypeScript", "React", "CodeMirror", "pdf.js"],
+    status: "complete",
+    year: "Nov 2026",
+    repo: "https://github.com/aneesh-aparajit/grimoire",
+    live: "https://grimoire.aneesh-aparajit.in",
+  },
+  {
     slug: "libra",
     name: "libra",
-    tagline: "A multi-tenant policy engine in Java: send an entity and an input, get allow or deny from policies written as plain JavaScript. Being built in the open.",
+    tagline: "A multi-tenant policy engine in Java: send an entity and an input, get allow or deny from policies written as plain JavaScript.",
     summary:
-      "A multi-tenant policy evaluation engine on Spring Boot. Policies are pairs of JavaScript functions, one deciding whether a policy applies and one deciding allow or deny, targeted at a whole scope or a single entity and run in parallel on GraalJS; any deny or error denies. Laid down so far: the Postgres schema and DAOs, the JS engine, and an HTTP API for tenants, scopes and versioned policies with optimistic locking. The evaluation endpoint comes next.",
+      "A multi-tenant policy evaluation engine on Spring Boot. Policies are pairs of JavaScript functions, one deciding whether a policy applies and one deciding allow or deny, targeted at a whole scope or a single entity and run in parallel on GraalJS; any deny or error denies, and every evaluation is recorded for auditing. Tenants, scopes and versioned policies are managed over an HTTP API with optimistic locking, stored in Postgres, and covered by smoke tests.",
     stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "GraalJS"],
-    status: "in-progress",
+    status: "complete",
     year: "Nov 2026",
     repo: "https://github.com/aneesh-aparajit/libra",
+    live: "https://libra.aneesh-aparajit.in",
   },
   {
     slug: "ostinato",
