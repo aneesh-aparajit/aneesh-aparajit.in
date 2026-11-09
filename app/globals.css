@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
-   One reading column on a computation pad: pale green stock, a faint
-   1.5rem grid, graphite and blue-black ink. Plain on purpose.
+   One reading column on a computation pad: pale blue-grey stock with a
+   toothy grain, a 1.5rem dot lattice, graphite and blue-black ink.
    ------------------------------------------------------------------ */
 
 :root {
@@ -9,8 +9,10 @@
 
   --stock: #e9eff5;
   --stock-deep: #dde6ef;
-  --grid: #dce5ef;
-  --grid-major: #cddaea;
+  --grid: #a9bbd0;
+  --grid-major: #6a83a0;
+  /* Paper tooth: a 180px fractal-noise tile, ink-tinted at 9% alpha. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.15  0 0 0 0 0.25  0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --rule: #adc0d6;
   --rule-strong: #4f6a88;
   --ink: #1e2530;
@@ -31,8 +33,9 @@
 :root[data-theme="dark"] {
   --stock: #10151d;
   --stock-deep: #161d27;
-  --grid: #151b24;
-  --grid-major: #1c2531;
+  --grid: #2f3d50;
+  --grid-major: #4f667f;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.85  0 0 0 0 0.95  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --rule: #2d3a4c;
   --rule-strong: #5b7593;
   --ink: #dde5ef;
@@ -65,22 +68,22 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-color: var(--stock);
+  /* A dot at every grid node (u) and a heavier dot every 5u, over paper grain.
+     The radial stops are hard (dot, then nothing), so the dots read as printed
+     marks, not glows. Each dot centres on the 1px a grid line would occupy. */
   background-image:
-    linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    radial-gradient(circle at 1px 1px, var(--grid-major) 1.1px, transparent 1.6px),
+    radial-gradient(circle at 1px 1px, var(--grid) 0.8px, transparent 1.2px),
+    var(--grain);
   background-size:
     calc(var(--u) * 5) calc(var(--u) * 5),
-    calc(var(--u) * 5) calc(var(--u) * 5),
     var(--u) var(--u),
-    var(--u) var(--u);
-  /* Minor lines land on the column edges (centre ± 21rem); majors on the centre line. */
+    180px 180px;
+  /* Nodes land on the column edges (centre ± 21rem); a major node on the centre line. */
   background-position:
-    calc(50% + 3.75rem) 0,
-    calc(50% + 3.75rem) 0,
-    calc(50% + 0.75rem) 0,
-    calc(50% + 0.75rem) 0;
+    calc(50% + 3.75rem - 0.5px) -0.5px,
+    calc(50% + 0.75rem - 0.5px) -0.5px,
+    0 0;
 }
 
 ::selection {
@@ -1009,3 +1012,4 @@ main > article > :first-child {
     display: none;
   }
 }
+
