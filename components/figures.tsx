@@ -108,10 +108,59 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i);
 type Drawing = { h: number; caption: string; alt: string; draw: () => ReactNode };
 
 const drawings: Record<string, Drawing> = {
+  grimoire: {
+    h: 11,
+    caption:
+      "A vault and the study view. Everything is plain files in one folder; open an item and its content sits beside a Markdown notebook and a sandbox on your own toolchains.",
+    alt: "On the left, a vault folder of plain files: INDEX.md as the reading list, a .grimoire folder of preferences, and a folder per item with its NOTES.md, sandbox code and any PDF. The app opens an item into the study view and saves back to the folder. The study view shows the blog, video or PDF on the left, a Markdown notebook top right and a code sandbox bottom right. Below, git carries the vault between machines.",
+    draw: () => (
+      <>
+        <Sq x={0} y={0} w={9} h={8} />
+        <T x={0.3} y={0.6}>
+          Vault · plain files
+        </T>
+        {(
+          [
+            [0.5, "INDEX.md"],
+            [0.5, ".grimoire/"],
+            [0.5, "attention/"],
+            [1.3, "NOTES.md"],
+            [1.3, "sandbox/main.py"],
+            [1.3, "paper.pdf"],
+          ] as const
+        ).map(([x, f], i) => (
+          <T key={f} x={x} y={1.75 + i} c="m">
+            {f}
+          </T>
+        ))}
+        <Wire p={[[9, 2.5], [11, 2.5]]} />
+        <T x={10} y={2.1} a="middle">
+          open
+        </T>
+        <Wire p={[[11, 5.5], [9, 5.5]]} />
+        <T x={10} y={5.1} a="middle">
+          save
+        </T>
+        <Sq x={11} y={0} w={17} h={8} />
+        <T x={11.3} y={0.6}>
+          Study view · Tauri
+        </T>
+        <Box x={11.5} y={1} w={8} h={6.5} t="Content" s="blog · video · PDF" />
+        <Box x={20} y={1} w={7.5} h={3} t="Notes" s="Markdown · autosave" />
+        <Box x={20} y={4.5} w={7.5} h={3} t="Sandbox" s="your own toolchains" />
+        <Wire p={[[4.5, 8], [4.5, 9]]} />
+        <Box x={0} y={9} w={9} h={1.75} t="git" mono />
+        <T x={10} y={10.05}>
+          push, clone, open the same vault on any machine
+        </T>
+      </>
+    ),
+  },
+
   libra: {
     h: 10,
     caption:
-      "An evaluation. Policies for the scope and the entity are loaded, each runs on GraalJS in parallel, and any deny or error denies. The dashed endpoint comes next.",
+      "An evaluation. Policies for the scope and the entity are loaded, each runs on GraalJS in parallel, and any deny or error denies.",
     alt: "A request with an entity and input goes to an evaluate endpoint, which loads versioned policies from Postgres and Redis and runs three policies in parallel on GraalJS, each checking whether it applies and then deciding. Their results meet in a rule where any deny or error denies.",
     draw: () => (
       <>
@@ -119,7 +168,7 @@ const drawings: Record<string, Drawing> = {
         <Wire p={[[5, 5], [7, 5]]} />
         <Box x={7} y={0} w={5} h={2} t="Postgres" s="Redis · versioned" />
         <Wire p={[[9.5, 2], [9.5, 3.5]]} />
-        <Box x={7} y={3.5} w={5} h={3} t="Evaluate" s="endpoint" dash />
+        <Box x={7} y={3.5} w={5} h={3} t="Evaluate" s="endpoint" />
         <Wire p={[[12, 5], [14, 5]]} />
         <Wire p={[[13, 5], [13, 2], [14, 2]]} />
         <Wire p={[[13, 5], [13, 8], [14, 8]]} />
