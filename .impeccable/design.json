@@ -38,34 +38,34 @@
       },
       "grid": {
         "role": "neutral",
-        "displayName": "Minor Grid Dot",
-        "canonical": "#a9bbd0",
-        "oklch": "oklch(78.5% 0.036 252.3)",
+        "displayName": "Minor Polar Line",
+        "canonical": "rgb(79 106 136 / 0.16)",
+        "oklch": "oklch(51.5% 0.058 251.6 / 0.16)",
         "tonalRamp": [
-          "oklch(15% 0.036 252.3)",
-          "oklch(26.4% 0.036 252.3)",
-          "oklch(37.9% 0.036 252.3)",
-          "oklch(49.3% 0.036 252.3)",
-          "oklch(60.7% 0.036 252.3)",
-          "oklch(72.1% 0.036 252.3)",
-          "oklch(83.6% 0.036 252.3)",
-          "oklch(95% 0.036 252.3)"
+          "oklch(15% 0.058 251.6)",
+          "oklch(26.4% 0.058 251.6)",
+          "oklch(37.9% 0.058 251.6)",
+          "oklch(49.3% 0.058 251.6)",
+          "oklch(60.7% 0.058 251.6)",
+          "oklch(72.1% 0.058 251.6)",
+          "oklch(83.6% 0.058 251.6)",
+          "oklch(95% 0.058 251.6)"
         ]
       },
       "grid-major": {
         "role": "neutral",
-        "displayName": "Major Grid Dot",
-        "canonical": "#6a83a0",
-        "oklch": "oklch(60.1% 0.053 252.4)",
+        "displayName": "Major Polar Line",
+        "canonical": "rgb(79 106 136 / 0.3)",
+        "oklch": "oklch(51.5% 0.058 251.6 / 0.3)",
         "tonalRamp": [
-          "oklch(15% 0.053 252.4)",
-          "oklch(26.4% 0.053 252.4)",
-          "oklch(37.9% 0.053 252.4)",
-          "oklch(49.3% 0.053 252.4)",
-          "oklch(60.7% 0.053 252.4)",
-          "oklch(72.1% 0.053 252.4)",
-          "oklch(83.6% 0.053 252.4)",
-          "oklch(95% 0.053 252.4)"
+          "oklch(15% 0.058 251.6)",
+          "oklch(26.4% 0.058 251.6)",
+          "oklch(37.9% 0.058 251.6)",
+          "oklch(49.3% 0.058 251.6)",
+          "oklch(60.7% 0.058 251.6)",
+          "oklch(72.1% 0.058 251.6)",
+          "oklch(83.6% 0.058 251.6)",
+          "oklch(95% 0.058 251.6)"
         ]
       },
       "rule": {
@@ -214,34 +214,34 @@
       },
       "lamp-grid": {
         "role": "neutral",
-        "displayName": "Lamp Minor Dot",
-        "canonical": "#2f3d50",
-        "oklch": "oklch(35.6% 0.038 256.2)",
+        "displayName": "Lamp Minor Polar",
+        "canonical": "rgb(143 156 176 / 0.08)",
+        "oklch": "oklch(68.9% 0.033 258.9 / 0.08)",
         "tonalRamp": [
-          "oklch(15% 0.038 256.2)",
-          "oklch(26.4% 0.038 256.2)",
-          "oklch(37.9% 0.038 256.2)",
-          "oklch(49.3% 0.038 256.2)",
-          "oklch(60.7% 0.038 256.2)",
-          "oklch(72.1% 0.038 256.2)",
-          "oklch(83.6% 0.038 256.2)",
-          "oklch(95% 0.038 256.2)"
+          "oklch(15% 0.033 258.9)",
+          "oklch(26.4% 0.033 258.9)",
+          "oklch(37.9% 0.033 258.9)",
+          "oklch(49.3% 0.033 258.9)",
+          "oklch(60.7% 0.033 258.9)",
+          "oklch(72.1% 0.033 258.9)",
+          "oklch(83.6% 0.033 258.9)",
+          "oklch(95% 0.033 258.9)"
         ]
       },
       "lamp-grid-major": {
         "role": "neutral",
-        "displayName": "Lamp Major Dot",
-        "canonical": "#4f667f",
-        "oklch": "oklch(50.2% 0.049 250.9)",
+        "displayName": "Lamp Major Polar",
+        "canonical": "rgb(143 156 176 / 0.16)",
+        "oklch": "oklch(68.9% 0.033 258.9 / 0.16)",
         "tonalRamp": [
-          "oklch(15% 0.049 250.9)",
-          "oklch(26.4% 0.049 250.9)",
-          "oklch(37.9% 0.049 250.9)",
-          "oklch(49.3% 0.049 250.9)",
-          "oklch(60.7% 0.049 250.9)",
-          "oklch(72.1% 0.049 250.9)",
-          "oklch(83.6% 0.049 250.9)",
-          "oklch(95% 0.049 250.9)"
+          "oklch(15% 0.033 258.9)",
+          "oklch(26.4% 0.033 258.9)",
+          "oklch(37.9% 0.033 258.9)",
+          "oklch(49.3% 0.033 258.9)",
+          "oklch(60.7% 0.033 258.9)",
+          "oklch(72.1% 0.033 258.9)",
+          "oklch(83.6% 0.033 258.9)",
+          "oklch(95% 0.033 258.9)"
         ]
       },
       "lamp-rule": {
@@ -421,7 +421,7 @@
     },
     "themes": {
       "dark": "Opt-in only: applied by data-theme=\"dark\" from the Theme cell in the header strip (saved in localStorage, applied before first paint). Light is the default regardless of OS preference. Uses the lamp-* tokens role for role.",
-      "print": "Background lattice and grain, header strip, footer and skip link hidden."
+      "print": "Grain, polar plot, header strip, footer and skip link hidden."
     }
   },
   "components": [
@@ -482,10 +482,10 @@
   ],
   "narrative": {
     "northStar": "The Computation Pad",
-    "overview": "The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock, a fine paper grain, a faint full-bleed dot lattice, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.\n\nDensity is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dim lattice. Print drops the paper and the chrome and keeps the column.\n\nThe world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.",
+    "overview": "The site is the classic minimal engineer page (one reading column of name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock, a fine paper grain, a faint polar plot fixed behind the sheet, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Content sits in a single 42rem column, and every structural mark is a 1px line.\n\nDensity is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The header is a ruled title-block strip of labelled cells, and each list entry carries a sheet number that hangs in the left margin outside the column, the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dimmer polar plot. Print drops the paper and the chrome and keeps the column.\n\nThe world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.",
     "keyCharacteristics": [
       "One centred 42rem reading column; no multi-column layouts.",
-      "Full-bleed dot lattice: a dot at every 1.5rem node and a heavier dot every 7.5rem, registered to the sheet edges, over a paper grain.",
+      "A polar plot fixed to the viewport (rings every 1.5rem, heavier every 7.5rem, spokes every 15°), fading out past 18u, over a paper grain.",
       "Structure by 1px rules only: square corners, no shadows, no filled panels except code.",
       "Three voices of type: humanist sans for reading, condensed uppercase for labels, mono for numbers.",
       "One accent (blue-black ink) carried only by links, the current nav cell, focus and selection.",
@@ -513,8 +513,8 @@
         "section": "typography"
       },
       {
-        "name": "The Registered Grid Rule",
-        "body": "The lattice is not wallpaper: its minor nodes sit on the sheet, rail and body edges. Any change to a width or lattice offset must keep those edges on grid nodes.",
+        "name": "The Whole-Unit Rule",
+        "body": "Every width, gap and figure dimension is a whole number of u. The polar plot stays behind the work; figures sit on a plain stock plate.",
         "section": "layout"
       },
       {
@@ -525,7 +525,7 @@
     ],
     "dos": [
       "**Do** measure vertical spacing in units of 1.5rem (u, 2u, 3u, 5u).",
-      "**Do** keep the minor lattice registered to the column edges when changing column width or grid offset.",
+      "**Do** keep every width, gap and figure dimension in whole u.",
       "**Do** separate content with 1px rules: hairline between entries, strong under section heads and around the strip.",
       "**Do** set every date, count and sheet number in the mono with tabular figures.",
       "**Do** mark unconfirmed content with dashed rules and faint graphite rather than hiding it.",
@@ -533,7 +533,7 @@
       "**Do** keep motion to colour and underline transitions at 160ms on the ease-out curve."
     ],
     "donts": [
-      "**Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop radial dots of the lattice.",
+      "**Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop 1px lines of the polar plot and the mask that fades it out.",
       "**Don't** box list entries into cards or filled panels; filled backgrounds are limited to the header strip's states and code.",
       "**Don't** introduce a display typeface or type larger than 2rem.",
       "**Don't** use blue-black for anything that is not interactive or the current location.",

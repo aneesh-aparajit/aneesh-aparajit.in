@@ -1,6 +1,7 @@
 /* ------------------------------------------------------------------
    One reading column on a computation pad: pale blue-grey stock with a
-   toothy grain, a 1.5rem dot lattice, graphite and blue-black ink.
+   toothy grain, a fixed polar plot behind the sheet, graphite and
+   blue-black ink.
    ------------------------------------------------------------------ */
 
 :root {
@@ -9,8 +10,10 @@
 
   --stock: #e9eff5;
   --stock-deep: #dde6ef;
-  --grid: #a9bbd0;
-  --grid-major: #6a83a0;
+  /* Polar plot lines: alpha over stock, so they stay faint wherever they cross. */
+  --grid: rgb(79 106 136 / 0.16);
+  --grid-major: rgb(79 106 136 / 0.3);
+  --polar-at: 72% 58%;
   /* Paper tooth: a 180px fractal-noise tile, ink-tinted at 9% alpha. */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.15  0 0 0 0 0.25  0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --rule: #adc0d6;
@@ -33,8 +36,8 @@
 :root[data-theme="dark"] {
   --stock: #10151d;
   --stock-deep: #161d27;
-  --grid: #2f3d50;
-  --grid-major: #4f667f;
+  --grid: rgb(143 156 176 / 0.08);
+  --grid-major: rgb(143 156 176 / 0.16);
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.85  0 0 0 0 0.95  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --rule: #2d3a4c;
   --rule-strong: #5b7593;
@@ -68,22 +71,24 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-color: var(--stock);
-  /* A dot at every grid node (u) and a heavier dot every 5u, over paper grain.
-     The radial stops are hard (dot, then nothing), so the dots read as printed
-     marks, not glows. Each dot centres on the 1px a grid line would occupy. */
-  background-image:
-    radial-gradient(circle at 1px 1px, var(--grid-major) 1.1px, transparent 1.6px),
-    radial-gradient(circle at 1px 1px, var(--grid) 0.8px, transparent 1.2px),
-    var(--grain);
-  background-size:
-    calc(var(--u) * 5) calc(var(--u) * 5),
-    var(--u) var(--u),
-    180px 180px;
-  /* Nodes land on the column edges (centre ± 21rem); a major node on the centre line. */
-  background-position:
-    calc(50% + 3.75rem - 0.5px) -0.5px,
-    calc(50% + 0.75rem - 0.5px) -0.5px,
-    0 0;
+  background-image: var(--grain);
+  background-size: 180px 180px;
+}
+
+/* The polar plot: a fixed instrument face the sheet scrolls over. Rings every
+   u with a heavier ring every 5u, spokes every 15deg, all hard-stop 1px lines,
+   centred right of the body and faded out by a radial mask past 18u. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-radial-gradient(circle at var(--polar-at), var(--grid-major) 0 1px, transparent 1px calc(var(--u) * 5)),
+    repeating-radial-gradient(circle at var(--polar-at), var(--grid) 0 1px, transparent 1px var(--u)),
+    repeating-conic-gradient(from 0deg at var(--polar-at), var(--grid-major) 0 0.12deg, transparent 0.12deg 15deg);
+  mask: radial-gradient(circle at var(--polar-at), #000 0 calc(var(--u) * 18), transparent calc(var(--u) * 30));
 }
 
 ::selection {
@@ -698,12 +703,14 @@ main > article > :first-child {
   margin-top: 1rem;
 }
 
-/* A schematic drawn on the pad. 28u wide, so its verticals meet the grid. */
+/* A schematic drawn on the pad, in units of u and 28u (the column) wide. Its
+   drawing sits on plain stock so the polar plot never runs through the lines. */
 .figure {
   margin-top: calc(var(--u) * 2);
 }
 .figure-draw {
   overflow-x: auto;
+  background: var(--grain) 0 0 / 180px 180px, var(--stock);
 }
 .figure svg {
   display: block;
@@ -1003,6 +1010,9 @@ main > article > :first-child {
   body {
     background: none;
   }
+  body::after {
+    display: none;
+  }
   .sheet {
     display: block;
   }
@@ -1012,4 +1022,5 @@ main > article > :first-child {
     display: none;
   }
 }
+
 

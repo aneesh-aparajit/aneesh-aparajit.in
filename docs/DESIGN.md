@@ -4,8 +4,8 @@ description: A drawing sheet on a pale blue-grey engineering computation pad, wi
 colors:
   stock: "#e9eff5"
   stock-deep: "#dde6ef"
-  grid: "#a9bbd0"
-  grid-major: "#6a83a0"
+  grid: "rgb(79 106 136 / 0.16)"
+  grid-major: "rgb(79 106 136 / 0.3)"
   rule: "#adc0d6"
   rule-strong: "#4f6a88"
   ink: "#1e2530"
@@ -15,8 +15,8 @@ colors:
   blue-wash: "#d3dff0"
   lamp-stock: "#10151d"
   lamp-stock-deep: "#161d27"
-  lamp-grid: "#2f3d50"
-  lamp-grid-major: "#4f667f"
+  lamp-grid: "rgb(143 156 176 / 0.08)"
+  lamp-grid-major: "rgb(143 156 176 / 0.16)"
   lamp-rule: "#2d3a4c"
   lamp-rule-strong: "#5b7593"
   lamp-ink: "#dde5ef"
@@ -143,15 +143,15 @@ components:
 
 **Creative North Star: "The Computation Pad"**
 
-The site is the classic minimal engineer page (name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock with a fine paper grain, a faint full-bleed dot lattice, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Every structural mark is a 1px line. The sheet is laid out like a drawing: a title-block rail on the left says who this is and indexes the sheets, and the body on the right carries the work, with prose held to a 42rem measure.
+The site is the classic minimal engineer page (name, intro, links and plain lists) set down on a sheet of engineering computation paper. The paper does the designing: pale blue-grey stock with a fine paper grain, a faint polar plot fixed behind the sheet, graphite ink, blue-black links with a thin underline, and hairline rules. Nothing else competes with it. Every structural mark is a 1px line. The sheet is laid out like a drawing: a title-block rail on the left says who this is and indexes the sheets, and the body on the right carries the work, with prose held to a 42rem measure.
 
-Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The title block is a ruled rail of labelled fields that stays beside the work as you scroll, projects are listed as a ruled schedule, and every entry carries a sheet number the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dim lattice and a pale grain. Print drops the paper and the rail and keeps the body.
+Density is calm and editorial: generous vertical air measured in grid units, tight horizontal discipline. The memorable details are material rather than motion. The title block is a ruled rail of labelled fields that stays beside the work as you scroll, projects are listed as a ruled schedule, and every entry carries a sheet number the way an engineer numbers pages. Dark mode is the same pad under a desk lamp: deep blue-black stock with a dimmer polar plot and a pale grain. Print drops the paper and the rail and keeps the body.
 
 The world deliberately refuses the showy frontend portfolio (hero, cards, motion) and the anonymous white template. It is plain on purpose, but it is drawn, not default.
 
 **Key Characteristics:**
 - A 13u title-block rail beside a 42u body; prose and project sheets keep a 42rem measure inside the body.
-- Full-bleed dot lattice: a dot at every 1.5rem node and a heavier dot every 7.5rem, registered to the sheet, rail and body edges, over a fractal-noise paper grain.
+- A polar plot fixed to the viewport (rings every 1.5rem, a heavier ring every 7.5rem, spokes every 15°) that the sheet scrolls over, fading out past 18u, on a fractal-noise paper grain.
 - Structure by 1px rules only: square corners, no shadows, no filled panels except code.
 - Three voices of type: humanist sans for reading, condensed uppercase for labels, mono for numbers.
 - One accent (blue-black ink) carried only by links, the current nav cell, focus and selection.
@@ -168,8 +168,8 @@ Low-chroma blue-grey paper and graphite ink, with one blue-black ink for anythin
 ### Neutral
 - **Pad Stock** (stock): the page and the title-block rail ground. Also the selection text colour and the browser theme colour.
 - **Deep Stock** (stock-deep): the one tonal step down: rail-cell hover, schedule row hover, code blocks and inline code.
-- **Minor Grid Dot** (grid): a 1.6px dot at every grid node (1.5rem) across the whole viewport.
-- **Major Grid Dot** (grid-major): a 2.2px dot every 7.5rem, drawn over the minor lattice.
+- **Minor Polar Line** (grid): 1px rings every 1.5rem on the polar plot. Alpha over stock, so it stays faint wherever it crosses.
+- **Major Polar Line** (grid-major): 1px rings every 7.5rem and the 15° spokes.
 - **Paper Grain** (`--grain`, not a colour role): a 180px SVG fractal-noise tile, ink-tinted at 9% alpha in light and pale at 6% under the lamp. It gives the stock tooth; it never carries information.
 - **Hairline Rule** (rule): list-item and schedule-row separators, rail field dividers, footer rule, code borders, horizontal rules.
 - **Strong Rule** (rule-strong): the rail outline, avatar frame, section-head underlines, the post-turn rule, blockquote and decision-note left rules, list markers, and the scrollbar thumb.
@@ -209,9 +209,9 @@ The `lamp-*` tokens are the same roles under a desk lamp, applied only when `dat
 
 ## Layout
 
-The spatial unit is **u = 1.5rem**. The page background is a dot lattice over grain: minor dots at every u node, major dots every 5u (7.5rem). Dots are hard-stop radial gradients centred at 1px,1px in each tile; the minor tile is positioned at `calc(50% + 0.75rem - 0.5px)` and the major at `calc(50% + 3.75rem - 0.5px)`, which puts a minor and a major node on the viewport centre. The lattice replaced a full line grid (minor and major 1px lines) that read as busy and dated: dots mark the same registration with a fraction of the ink.
+The spatial unit is **u = 1.5rem**. The page background is the grain tile on stock, with a polar plot on a fixed `body::after` behind everything: hard-stop repeating radial gradients for rings every u and every 5u, and a repeating conic gradient for spokes every 15°, all centred at `--polar-at` (72% 58% of the viewport). A radial mask keeps the plot solid to 18u from the centre and fades it out by 30u, so it reads as an instrument face lying under the sheet rather than wallpaper. Because it is fixed, the work scrolls across it. The polar plot replaced a full-bleed Cartesian line grid that read as busy, flat and dated; there is no longer a background grid for edges to register to, but every width and figure is still measured in whole u.
 
-The sheet is 58u (87rem) of content plus 1u of padding each side, centred, with 2u top and 5u bottom. Inside it sit a 13u (19.5rem) title-block rail, a 3u gap and a 42u body. Every one of those widths is whole u and the sheet is centred on a grid line, so the sheet edges, the rail's right edge and the body's left edge all land on minor grid nodes. Registration holds whenever the viewport is at least 90rem wide; below that the sheet goes fluid.
+The sheet is 58u (87rem) of content plus 1u of padding each side, centred, with 2u top and 5u bottom. Inside it sit a 13u (19.5rem) title-block rail, a 3u gap and a 42u body. Every one of those widths is whole u and the sheet is centred on a grid line, so the sheet edges, the rail's right edge and the body's left edge all fall on whole-u positions from the centre. Below 90rem the sheet goes fluid.
 
 Inside the body, posts and project sheets keep the 42rem reading measure; lists and the schedule use the full body width, with descriptions capped at 36em. Every sheet starts level with the top of the rail. Vertical rhythm between blocks is counted in units: sections start 3u below what precedes them (2.5u on phones), post prose starts 2u below the head, prose h2 sits 2.5u down. Inside lists, entries use 1rem padding and 0.25rem row gaps.
 
@@ -224,14 +224,14 @@ Breakpoints:
 - **< 60rem:** the sheet becomes one 42rem column with 1.25rem padding; the rail sits on top and stops following the page; its index and theme cells become one strip of label-over-value cells; sheet numbers sit inline before titles at 0.8125rem; schedule rows become blocks (number, stamp and year on one row, then the project, then the stack).
 - **< 40rem:** titles drop to 1.75rem; decision notes stack; code blocks and figures bleed to the screen edges.
 
-Print removes the lattice and grain, the rail, the footer and the skip link, leaving the body.
+Print removes the grain and the polar plot, the rail, the footer and the skip link, leaving the body.
 
 ### Named Rules
-**The Registered Grid Rule.** The lattice is not wallpaper: its minor nodes sit on the sheet, rail and body edges. Any change to a width, gap or lattice offset must keep those edges on grid nodes at full width.
+**The Whole-Unit Rule.** Every width, gap and figure dimension is a whole number of u. The polar plot is the one background mark, and it stays behind the work: figures sit on a plain grained stock plate so its lines never run through a drawing.
 
 ## Elevation & Depth
 
-The system is completely flat. There are no shadows anywhere. Depth is conveyed only by 1px rules of two weights (hairline and strong) and a single tonal step (deep stock) for hover and code. The dotted, grained background reads as the paper surface; everything sits on it, nothing floats above it.
+The system is completely flat. There are no shadows anywhere. Depth is conveyed only by 1px rules of two weights (hairline and strong) and a single tonal step (deep stock) for hover and code. The grained stock reads as the paper surface and the polar plot as a faint instrument face beneath it; everything sits on it, nothing floats above it.
 
 ### Named Rules
 **The Drawn Not Lifted Rule.** If something needs separation, rule it. Never lift it with a shadow, blur or overlay.
@@ -284,7 +284,7 @@ Each project has its own sheet at `/projects/<slug>`, reached from the project's
 
 ### Project Figure
 The one visual on a project sheet: a schematic of how the project works, drawn as inline SVG in the pad's own inks, like a figure on a computation sheet.
-- **Grid:** drawn in units of u and exactly 28u (the 42rem column) wide, so its verticals land on the paper's minor grid nodes. Lines are offset half a pixel and use non-scaling strokes, so every line stays 1px.
+- **Grid:** drawn in units of u and exactly 28u (the 42rem column) wide, matching the column. The drawing sits on a plain plate of stock and grain, so the polar plot never crosses it. Lines are offset half a pixel and use non-scaling strokes, so every line stays 1px.
 - **Marks:** boxes in strong rule with no fill; wires and open chevron arrowheads in faint graphite; deep stock is the only fill (tokens, table header cells, a chosen value). Dashed boxes are designed but not built, and a cross marks something the design refuses.
 - **Type:** box titles in the body face at 700, sublabels and annotations in the label face, numbers in the mono.
 - **Caption:** a hairline rule, then "Fig. NN.N" as a label beside a soft-graphite sentence; it stacks on phones.
@@ -310,7 +310,7 @@ A hairline rule, then two labels: the name on the left, "Sheet NN of NN" on the 
 
 ### Do:
 - **Do** measure vertical spacing in units of 1.5rem (u, 2u, 3u, 5u).
-- **Do** keep the minor lattice registered to the sheet, rail and body edges when changing any width, gap or grid offset.
+- **Do** keep every width, gap and figure dimension in whole u, and keep figures on their plain stock plate.
 - **Do** separate content with 1px rules: hairline between entries, strong under section heads and around the rail.
 - **Do** set every date, count and sheet number in the mono with tabular figures.
 - **Do** mark unconfirmed content with dashed rules and faint graphite rather than hiding it.
@@ -318,7 +318,7 @@ A hairline rule, then two labels: the name on the left, "Sheet NN of NN" on the 
 - **Do** keep motion to colour and underline transitions at 160ms on the ease-out curve.
 
 ### Don't:
-- **Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop radial dots of the lattice.
+- **Don't** add rounded corners, shadows, or soft colour gradients. The only gradients in the system are the hard-stop 1px lines of the polar plot and the mask that fades it out.
 - **Don't** box list entries into cards or filled panels; filled backgrounds are limited to the rail's cell states, schedule row hover and code.
 - **Don't** introduce a display typeface or type larger than 2rem.
 - **Don't** use blue-black for anything that is not interactive or the current location.
