@@ -28,7 +28,7 @@ function subscribe(onChange: () => void) {
   return () => observer.disconnect();
 }
 
-// A title-block cell that flips the pad between daylight and the desk lamp.
+// A title-block cell that flips the page between daylight and lamplight.
 export function ThemeToggle() {
   const theme = useSyncExternalStore(subscribe, read, () => "light" as Theme);
   const next: Theme = theme === "dark" ? "light" : "dark";

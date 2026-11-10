@@ -42,7 +42,7 @@ export const projects: Project[] = [
     summary:
       "A minimal, local-first desktop app on Tauri for studying blogs, videos and PDFs. A reading list lives in a Markdown INDEX.md; open an item and the content sits on the left, with a Markdown notebook and a code sandbox on the right that runs Python, Rust, Go, Java, C or JavaScript on the toolchains already on your machine. There is no database and no account: the vault is a folder of plain files, preferences included, that you sync with git.",
     stack: ["Rust", "Tauri", "TypeScript", "React", "CodeMirror", "pdf.js"],
-    status: "complete",
+    status: "released",
     year: "Nov 2026",
     repo: "https://github.com/aneesh-aparajit/grimoire",
     live: "https://grimoire.aneesh-aparajit.in",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     summary:
       "A multi-tenant policy evaluation engine on Spring Boot. Policies are pairs of JavaScript functions, one deciding whether a policy applies and one deciding allow or deny, targeted at a whole scope or a single entity and run in parallel on GraalJS; any deny or error denies, and every evaluation is recorded for auditing. Tenants, scopes and versioned policies are managed over an HTTP API with optimistic locking, stored in Postgres, and covered by smoke tests.",
     stack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "GraalJS"],
-    status: "complete",
+    status: "released",
     year: "Nov 2026",
     repo: "https://github.com/aneesh-aparajit/libra",
     live: "https://libra.aneesh-aparajit.in",
