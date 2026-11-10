@@ -1,28 +1,22 @@
 /* ------------------------------------------------------------------
-   One reading column on a computation pad: pale blue-grey stock with a
-   toothy grain, a fixed polar plot behind the sheet, graphite and
-   blue-black ink.
+   One reading column on book paper: warm off-white stock, near-black
+   ink, one clear blue for links, hairline rules. Nothing behind the
+   words.
    ------------------------------------------------------------------ */
 
 :root {
   --u: 1.5rem;
   --col: 42rem;
 
-  --stock: #e9eff5;
-  --stock-deep: #dde6ef;
-  /* Polar plot lines: alpha over stock, so they stay faint wherever they cross. */
-  --grid: rgb(79 106 136 / 0.16);
-  --grid-major: rgb(79 106 136 / 0.3);
-  --polar-at: 72% 58%;
-  /* Paper tooth: a 180px fractal-noise tile, ink-tinted at 9% alpha. */
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.15  0 0 0 0 0.25  0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --rule: #adc0d6;
-  --rule-strong: #4f6a88;
-  --ink: #1e2530;
-  --ink-soft: #3a4553;
-  --ink-faint: #525f73;
-  --blue: #1c4f96;
-  --blue-wash: #d3dff0;
+  --stock: #f7f4ee;
+  --stock-deep: #efebe3;
+  --rule: #d9d2c5;
+  --rule-strong: #5c564c;
+  --ink: #1b1a17;
+  --ink-soft: #3d3a34;
+  --ink-faint: #6a655b;
+  --blue: #1d4ed8;
+  --blue-wash: #e9e5dc;
 
   --font-body: var(--font-atkinson), "Atkinson Hyperlegible", system-ui, sans-serif;
   --font-label: var(--font-barlow), "Arial Narrow", sans-serif;
@@ -32,20 +26,18 @@
   color-scheme: light;
 }
 
-/* The same pad under a desk lamp. Opt-in from the Theme cell; light is the default. */
+/* The same book read by lamplight: warm charcoal, never blue-black.
+   Opt-in from the Theme cell; light is the default. */
 :root[data-theme="dark"] {
-  --stock: #10151d;
-  --stock-deep: #161d27;
-  --grid: rgb(143 156 176 / 0.08);
-  --grid-major: rgb(143 156 176 / 0.16);
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.85  0 0 0 0 0.95  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --rule: #2d3a4c;
-  --rule-strong: #5b7593;
-  --ink: #dde5ef;
-  --ink-soft: #b4c0cf;
-  --ink-faint: #8f9cb0;
-  --blue: #9cc0ea;
-  --blue-wash: #1a2a40;
+  --stock: #161513;
+  --stock-deep: #1e1d1a;
+  --rule: #34312c;
+  --rule-strong: #8a8376;
+  --ink: #ece8e1;
+  --ink-soft: #cbc6bc;
+  --ink-faint: #9b958a;
+  --blue: #8fb0f5;
+  --blue-wash: #24221f;
   color-scheme: dark;
 }
 
@@ -71,24 +63,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-color: var(--stock);
-  background-image: var(--grain);
-  background-size: 180px 180px;
-}
-
-/* The polar plot: a fixed instrument face the sheet scrolls over. Rings every
-   u with a heavier ring every 5u, spokes every 15deg, all hard-stop 1px lines,
-   centred right of the body and faded out by a radial mask past 18u. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    repeating-radial-gradient(circle at var(--polar-at), var(--grid-major) 0 1px, transparent 1px calc(var(--u) * 5)),
-    repeating-radial-gradient(circle at var(--polar-at), var(--grid) 0 1px, transparent 1px var(--u)),
-    repeating-conic-gradient(from 0deg at var(--polar-at), var(--grid-major) 0 0.12deg, transparent 0.12deg 15deg);
-  mask: radial-gradient(circle at var(--polar-at), #000 0 calc(var(--u) * 18), transparent calc(var(--u) * 30));
 }
 
 ::selection {
@@ -173,9 +147,8 @@ a:hover {
 
 /* ---------- the sheet: title-block rail and body ---------- */
 
-/* 58u of content: a 13u rail, a 3u gap and a 42u body. At 90rem and wider the
-   sheet is centred, so its edges, the rail edge and the body edge all land on
-   minor grid lines (the centre is a grid line, and every width is whole u). */
+/* 58u of content: a 13u rail, a 3u gap and a 42u body, centred. Every width
+   is whole u, so the sheet keeps one measure from rail to figure. */
 .sheet {
   display: grid;
   grid-template-columns: calc(var(--u) * 13) minmax(0, 1fr);
@@ -703,14 +676,12 @@ main > article > :first-child {
   margin-top: 1rem;
 }
 
-/* A schematic drawn on the pad, in units of u and 28u (the column) wide. Its
-   drawing sits on plain stock so the polar plot never runs through the lines. */
+/* A schematic drawn on the sheet, in units of u and 28u (the column) wide. */
 .figure {
   margin-top: calc(var(--u) * 2);
 }
 .figure-draw {
   overflow-x: auto;
-  background: var(--grain) 0 0 / 180px 180px, var(--stock);
 }
 .figure svg {
   display: block;
@@ -1010,9 +981,6 @@ main > article > :first-child {
   body {
     background: none;
   }
-  body::after {
-    display: none;
-  }
   .sheet {
     display: block;
   }
@@ -1022,5 +990,6 @@ main > article > :first-child {
     display: none;
   }
 }
+
 
 

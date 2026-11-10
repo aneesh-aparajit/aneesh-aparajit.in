@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-// Project figures: schematics drawn on the pad in its own inks.
+// Project figures: schematics drawn on the sheet in its own inks.
 // Coordinates are in grid units (u = 24px). The drawing is 28u wide, which is
-// exactly the 42rem column, so its verticals land on the paper's minor grid.
+// exactly the 42rem column.
 // Each figure draws only what the project's summary states.
 
 const U = 24;
@@ -505,7 +505,7 @@ export function ProjectFigure({ slug, n }: { slug: string; n: string }) {
               <path d="M1.5 1 7.5 4 1.5 7" className="fig-head" />
             </marker>
           </defs>
-          {/* Half-pixel offset so 1px lines sit on whole pixels, like the grid. */}
+          {/* Half-pixel offset so 1px lines sit on whole pixels. */}
           <g transform="translate(0.5 0.5)">{d.draw()}</g>
         </svg>
       </div>
